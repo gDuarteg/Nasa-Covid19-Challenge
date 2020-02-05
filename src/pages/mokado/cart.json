@@ -1,0 +1,40 @@
+{
+    "cart":[
+        {
+        "nome": "Sopa de Morcego",
+        "ing": ["arroz","carne","salada"],
+        "qnt": [10,2,5],
+        "cat": "novidades",
+        "desc": "Pode conter Corona Virus",
+        "id": 101,
+        "preço": 15.0
+        },
+        {
+        "nome": "Prato de Herói",
+        "ing": ["arroz","carne","salada"],
+        "qnt": [10,2,5],
+        "cat": "novidades",
+        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+        "id": 102,
+        "preço": 30
+        },
+        {
+        "nome": "Joelho de Cobra",
+        "ing": ["arroz","carne","salada"],
+        "qnt": [10,2,5],
+        "cat": "novidades",
+        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+        "id": 103,
+        "preço": 60
+        },
+        {
+        "nome": "Asa de Macaco",
+        "ing": ["arroz","carne","salada"],
+        "qnt": [10,2,5],
+        "cat": "novidades",
+        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+        "id": 104,
+        "preço": 120
+        }
+    ]
+}
