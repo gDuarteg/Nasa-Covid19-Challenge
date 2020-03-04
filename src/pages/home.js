@@ -39,15 +39,15 @@ export default function Home({ route, navigation }) {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.viewButton}>
-          <Text
-            style={styles.button}
+        <View>
+          <TouchableOpacity
+            style={styles.viewButton}
             onPress={() => {
               navigation.navigate("Menu", { token: token });
             }}
           >
-            Iniciar Pedido
-          </Text>
+            <Text style={styles.button}>Iniciar Pedido</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

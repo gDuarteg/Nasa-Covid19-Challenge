@@ -10,27 +10,32 @@ import {
 } from "react-native";
 
 // import api from "../services/api";
-import menu from "./mokado/menu";
+import menuu from "./mokado/menu";
 
 export default function Menu({ route, navigation }) {
   const { token } = route.params;
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState([
+    "novidades",
+    "carne",
+    "peixe",
+    "vegano"
+  ]);
   const [select, setSelect] = useState("novidades");
-  const [menu, setMenu] = useState(menu);
+  const [menu, setMenu] = useState(menuu);
   const [menuCat, setMenuCat] = useState([]);
+  const [teste, setTeste] = useState("");
 
-  // Executa quando a página é criada
+  //Executa quando a página é criada
   useEffect(() => {
-    setCategory(["novidades", "carne", "peixe", "vegano"]);
-    creatMenuCat();
+    createMenuCat();
   }, []);
 
-  // Executa quando uma categoria de itens é selecionada
+  //Executa quando uma categoria de itens é selecionada
   useEffect(() => {
     createMenuCat();
   }, [select]);
 
-  // GET DOS PRATOS DISPONIVEIS NO BACKEND
+  //GET DOS PRATOS DISPONIVEIS NO BACKEND
   // function getMenu() => {
   //   const response = await api.get('/receipes')
   //   const data = await response.json
@@ -39,9 +44,9 @@ export default function Menu({ route, navigation }) {
 
   function createMenuCat() {
     var NewMenuCat = [];
-    for (var i in menu.menu) {
-      if (menu.menu[i].cat === select) {
-        NewMenuCat.push(menu.menu[i]);
+    for (var i in menu.menuu) {
+      if (menu.menuu[i].cat === select) {
+        NewMenuCat.push(menu.menuu[i]);
       }
     }
     setMenuCat(NewMenuCat);
@@ -53,7 +58,7 @@ export default function Menu({ route, navigation }) {
         style={styles.menuProductItem}
         onPress={() => {
           Alert.alert(`Selecionou ${item.nome}`);
-          navigation.navigate("Product", { token: token, product: item });
+          navigation.navigate("Product", { product: item, token: token });
         }}
       >
         <Text style={styles.menuProductName}>{item.nome}</Text>
@@ -71,7 +76,7 @@ export default function Menu({ route, navigation }) {
           setSelect(catSelect);
         }}
       >
-        <Text style={styles.categoryText}>{props}</Text>
+        <Text style={styles.categoryText}>{catSelect}</Text>
       </TouchableOpacity>
     );
   }
@@ -89,6 +94,7 @@ export default function Menu({ route, navigation }) {
           <Image style={styles.imgCart} source={require("./images/cart.png")} />
         </TouchableOpacity>
       </View>
+
       <View style={styles.menu}>
         <FlatList
           showsVerticalScrollIndicator={false}

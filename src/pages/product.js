@@ -1,5 +1,5 @@
 /* eslint-disable no-trailing-spaces */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -13,8 +13,7 @@ import {
 
 export default function Product({ route, navigation }) {
   const { token } = route.params;
-  const { item } = route.params;
-  const [product, setProduct] = useState(item);
+  const { product } = route.params;
   const [dish, setDish] = useState([]);
 
   useEffect(() => {

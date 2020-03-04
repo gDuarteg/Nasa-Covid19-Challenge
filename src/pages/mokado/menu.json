@@ -1,229 +1,229 @@
 {
-    "menu":[
-        {
-        "nome": "Sopa de Morcego",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "Pode conter Corona Virus",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "Prato de Herói",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 102,
-        "preço": 30
-        },
-        {
-        "nome": "Joelho de Cobra",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 103,
-        "preço": 60
-        },
-        {
-        "nome": "Asa de Macaco",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 104,
-        "preço": 120
-        },
-        {
-        "nome": "mixNovo 5",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "novo pra vc",
-        "id": 105,
-        "preço": 240
-        },
-        {
-        "nome": "mixNovo 6",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "novo pra vc",
-        "id": 106,
-        "preço": 480
-        },
-        {
-        "nome": "mixNovo 7",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "novo pra vc",
-        "id": 108,
-        "preço": 960
-        },
-        {
-        "nome": "mixNovo 8",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "novidades",
-        "desc": "novo pra vc",
-        "id": 109,
-        "preço": 1920
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixPeixe",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "peixe",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixVegano",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "vegano",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixPeixe",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "peixe",
-        "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixVegano",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "vegano",
-        "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixPeixe",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "peixe",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixVegano",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "vegano",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixCarne",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "carne",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixPeixe",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "peixe",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        },
-        {
-        "nome": "mixVegano",
-        "ing": ["arroz","carne","salada"],
-        "qnt": [10,2,5],
-        "cat": "vegano",
-        "desc": "novo pra vc",
-        "id": 101,
-        "preço": 15.0
-        }
-    ] 
+  "menuu": [
+    {
+      "nome": "Sopa de Morcego",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "Pode conter Corona Virus",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "Prato de Herói",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 102,
+      "preço": 30
+    },
+    {
+      "nome": "Joelho de Cobra",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 103,
+      "preço": 60
+    },
+    {
+      "nome": "Asa de Macaco",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 104,
+      "preço": 120
+    },
+    {
+      "nome": "mixNovo 5",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "novo pra vc",
+      "id": 105,
+      "preço": 240
+    },
+    {
+      "nome": "mixNovo 6",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "novo pra vc",
+      "id": 106,
+      "preço": 480
+    },
+    {
+      "nome": "mixNovo 7",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "novo pra vc",
+      "id": 108,
+      "preço": 960
+    },
+    {
+      "nome": "mixNovo 8",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "novidades",
+      "desc": "novo pra vc",
+      "id": 109,
+      "preço": 1920
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixPeixe",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "peixe",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixVegano",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "vegano",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixPeixe",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "peixe",
+      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixVegano",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "vegano",
+      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixPeixe",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "peixe",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixVegano",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "vegano",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixCarne",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "carne",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixPeixe",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "peixe",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    },
+    {
+      "nome": "mixVegano",
+      "ing": ["arroz", "carne", "salada"],
+      "qnt": [10, 2, 5],
+      "cat": "vegano",
+      "desc": "novo pra vc",
+      "id": 101,
+      "preço": 15.0
+    }
+  ]
 }
