@@ -9,11 +9,12 @@ import {
   Image
 } from "react-native";
 
-// import api from "../services/api";
+import api from "../services/api";
 import menuu from "./mokado/menu";
 
 export default function Menu({ route, navigation }) {
   const { token } = route.params;
+  // const { CN } = route.params;
   const [category, setCategory] = useState([
     "novidades",
     "carne",
@@ -22,11 +23,13 @@ export default function Menu({ route, navigation }) {
   ]);
   const [select, setSelect] = useState("novidades");
   const [menu, setMenu] = useState(menuu);
+  const [menu2, setMenu2] = useState();
   const [menuCat, setMenuCat] = useState([]);
-  const [teste, setTeste] = useState("");
+  // const [cartNum, setCartNum] = useState();
 
   //Executa quando a página é criada
   useEffect(() => {
+    getMenu();
     createMenuCat();
   }, []);
 
@@ -35,12 +38,15 @@ export default function Menu({ route, navigation }) {
     createMenuCat();
   }, [select]);
 
-  //GET DOS PRATOS DISPONIVEIS NO BACKEND
-  // function getMenu() => {
-  //   const response = await api.get('/receipes')
-  //   const data = await response.json
-  //   setMenu(data)
-  // };
+  const getMenu = async () => {
+    try {
+      const response = await api.get("recipes/");
+      console.log(response.data.data);
+      setMenu2(response.data.data);
+    } catch (erro) {
+      console.log(erro);
+    }
+  };
 
   function createMenuCat() {
     var NewMenuCat = [];
@@ -57,13 +63,12 @@ export default function Menu({ route, navigation }) {
       <TouchableOpacity
         style={styles.menuProductItem}
         onPress={() => {
-          Alert.alert(`Selecionou ${item.nome}`);
           navigation.navigate("Product", { product: item, token: token });
         }}
       >
-        <Text style={styles.menuProductName}>{item.nome}</Text>
-        <Text style={styles.menuProductPrice}>{`R$ ${item.preço}`}</Text>
-        <Text style={styles.menuProductDescrib}>{item.desc}</Text>
+        <Text style={styles.menuProductName}>{item.name}</Text>
+        {/* <Text style={styles.menuProductPrice}>{`R$ ${item.preço}`}</Text>
+        <Text style={styles.menuProductDescrib}>{item.desc}</Text> */}
       </TouchableOpacity>
     );
   }
@@ -98,7 +103,7 @@ export default function Menu({ route, navigation }) {
       <View style={styles.menu}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={menuCat}
+          data={menu2}
           renderItem={({ item: rowData }) => {
             return <View>{menuItem(rowData)}</View>;
           }}

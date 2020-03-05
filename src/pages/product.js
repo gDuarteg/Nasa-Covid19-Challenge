@@ -9,33 +9,40 @@ import {
   Image,
   Alert
 } from "react-native";
-// import api from "../services/api";
+import api from "../services/api";
 
 export default function Product({ route, navigation }) {
   const { token } = route.params;
   const { product } = route.params;
-  const [dish, setDish] = useState([]);
+  const [dish, setDish] = useState();
 
   useEffect(() => {
-    createDishArray();
+    getDishInfo();
+    //createDishArray();
   }, []);
 
-  function createDishArray() {
-    var dishArray = [];
-    for (var i in product.ing) {
-      dishArray.push({
-        ing: product.ing[i],
-        qnt: product.qnt[i]
-      });
-    }
-    setDish(dishArray);
-  }
+  const getDishInfo = async () => {
+    const respose = await api.get(`recipes/${product.name}`);
+    setDish(respose.data.data);
+    console.log(respose.data.data);
+  };
+
+  // function createDishArray() {
+  //   var dishArray = [];
+  //   for (var i in product.ing) {
+  //     dishArray.push({
+  //       ing: product.ing[i],
+  //       qnt: product.qnt[i]
+  //     });
+  //   }
+  //   setDish(dishArray);
+  // }
 
   // Configuração de cada ingrediente do prato selecionado
   function configItem(item) {
     return (
       <View style={styles.itemLine}>
-        <Text style={styles.itemIng}>{item.ing}</Text>
+        <Text style={styles.itemIng}>{item.name}</Text>
         <TouchableOpacity
           style={styles.itemMinus}
           onPress={() => {
@@ -47,11 +54,11 @@ export default function Product({ route, navigation }) {
             source={require("./images/minus.png")}
           />
         </TouchableOpacity>
-        <Text style={styles.itemQnt}>{item.qnt}</Text>
+        <Text style={styles.itemQnt}>{item.weight}</Text>
         <TouchableOpacity
           style={styles.itemPlus}
           onPress={() => {
-            Alert.alert(`Mais ${item.ing}`);
+            Alert.alert(`Mais`);
           }}
         >
           <Image style={styles.imgPlus} source={require("./images/plus.png")} />
@@ -63,14 +70,17 @@ export default function Product({ route, navigation }) {
   return (
     <View style={styles.page}>
       <View style={styles.titleBar}>
-        <Text style={styles.title}>{product.nome}</Text>
+        <Text style={styles.title}>{product.name}</Text>
       </View>
       <View style={styles.describeView}>
-        <Text style={styles.describe}>{product.desc}</Text>
+        {/* <Text style={styles.describe}>{dish.describe}</Text> */}
+        <Text style={styles.describe}>
+          DESCRIÇÃO DO PRATO (adiconar no backend !!!)
+        </Text>
       </View>
 
       <FlatList
-        data={dish}
+        data={dish.ingredients}
         renderItem={({ item: rowData }) => {
           return <View>{configItem(rowData)}</View>;
         }}
@@ -78,7 +88,10 @@ export default function Product({ route, navigation }) {
       />
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Valor: R$ ${product.preço}`}</Text>
+        {/* <Text style={styles.price}>{`Valor: R$ ${dish.price}`}</Text> */}
+        <Text
+          style={styles.price}
+        >{`Valor: R$ (adicionar preço no backend !!!)`}</Text>
 
         <TouchableOpacity
           style={styles.addBox}
