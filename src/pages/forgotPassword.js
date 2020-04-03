@@ -14,35 +14,32 @@ import { useSelector, useDispatch } from "react-redux";
 
 //import api from "../services/api";
 
-export default function Login({ navigation }) {
+export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   function postUser() {
-    // const response = await api.post("/auth/login", {
+    // const response = await api.post("/auth/forgotPassword", {
     //   email: email,
     //   password: password
     // });
-    const response = "Approved Token";
+    // const response = "Approved Token";
 
-    if (email === "admin" && password === "admin") {
+    if (email === "admin") {
       dispatch({ type: actions.SAVE_EMAIL, payload: email });
       dispatch({ type: actions.SAVE_PASSWORD, payload: password });
       dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
       navigation.navigate("Home");
     } else {
       dispatch({ type: actions.INVALID_TOKEN });
-      navigation.navigate("Home");
-      // Alert.alert("Senha Incorreta");
     }
   }
   return (
     <ScrollView style={styles.scrollView}>
       <View>
-        <Text style={styles.title}>Bytes</Text>
+        <Text style={styles.title}>Esqueceu sua senha?</Text>
       </View>
       <View style={styles.body}>
         <View>
@@ -51,12 +48,6 @@ export default function Login({ navigation }) {
             placeholder="Email"
             onChangeText={text => setEmail(text)}
           />
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Senha"
-            secureTextEntry={true}
-            onChangeText={text => setPassword(text)}
-          />
         </View>
         <TouchableOpacity
           style={styles.viewButton}
@@ -64,18 +55,8 @@ export default function Login({ navigation }) {
             postUser();
           }}
         >
-          <Text style={styles.button}>Entrar</Text>
+          <Text style={styles.button}>Enviar</Text>
         </TouchableOpacity>
-        <View>
-          <Text
-            style={styles.forgotPassword}
-            onPress={() => {
-              navigation.navigate("ForgotPassword");
-            }}
-          >
-            Esqueci Minha Senha
-          </Text>
-        </View>
       </View>
     </ScrollView>
   );

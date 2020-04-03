@@ -7,6 +7,9 @@ import Home from "./pages/home";
 import Menu from "./pages/menu";
 import Product from "./pages/product";
 import Cart from "./pages/cart";
+import forgotPassword from "./pages/forgotPassword";
+// import trackOrder from "./pages/trackOrder";
+// import payment from "./pages/payment";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +26,9 @@ export default function Routes() {
       <Stack.Screen name="Menu" component={Menu} />
       <Stack.Screen name="Product" component={Product} />
       <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen name="ForgotPassword" component={forgotPassword} />
+      {/* <Stack.Screen name="TrackOrder" component={trackOrder} />
+      <Stack.Screen name="Payment" component={payment} /> */}
     </Stack.Navigator>
   );
 }

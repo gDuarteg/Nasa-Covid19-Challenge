@@ -9,8 +9,8 @@ function cart(state = initialState.cart, action) {
         ...state,
         cart: state.cart.filter(item => item !== action.payload)
       };
-    case "CLEAN":
-      return { cart: [] };
+    case "CLEAN_CART":
+      return { ...state, cart: [] };
     default:
       return state;
   }
