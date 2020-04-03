@@ -73,11 +73,11 @@ export default function Cart({ navigation }) {
         <TouchableOpacity
           style={styles.payBox}
           onPress={() => {
-            Alert.alert("Compra realizada com sucesso !!!");
-            navigation.navigate("Home");
+            // Alert.alert("Compra realizada com sucesso !!!");
+            navigation.navigate("Payment");
           }}
         >
-          <Text style={styles.pay}>Confirmar</Text>
+          <Text style={styles.pay}>Continuar</Text>
         </TouchableOpacity>
       </View>
     </View>

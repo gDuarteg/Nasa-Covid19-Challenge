@@ -43,12 +43,24 @@ export default function Home({ navigation }) {
 
         <View>
           <TouchableOpacity
-            style={styles.viewButton}
+            style={styles.viewButtonMenu}
             onPress={() => {
               navigation.navigate("Menu");
             }}
           >
-            <Text style={styles.button}>Iniciar Pedido</Text>
+            <Text style={styles.buttonMenu}>Pedido Rápido</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <TouchableOpacity
+            style={styles.viewButtonCommunity}
+            onPress={() => {
+              Alert.alert("Comunidade");
+              // navigation.navigate("Menu");
+            }}
+          >
+            <Text style={styles.buttonCommunity}>Comunidade</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -72,14 +84,14 @@ const styles = StyleSheet.create({
   body: {
     flex: 1
   },
-  button: {
+  buttonMenu: {
     color: "white",
     textAlign: "center",
     justifyContent: "center",
     fontWeight: "bold",
     fontSize: 30
   },
-  viewButton: {
+  viewButtonMenu: {
     backgroundColor: "black",
     width: 300,
     height: 130,
@@ -88,6 +100,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 300,
     marginBottom: 50
+  },
+  buttonCommunity: {
+    color: "white",
+    textAlign: "center",
+    justifyContent: "center",
+    fontWeight: "bold",
+    fontSize: 30
+  },
+  viewButtonCommunity: {
+    backgroundColor: "black",
+    width: 300,
+    height: 130,
+    borderRadius: 8,
+    alignSelf: "center",
+    justifyContent: "center"
   },
   imgConfig: {
     height: 40,
