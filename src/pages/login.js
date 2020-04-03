@@ -9,25 +9,34 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import * as actions from "../store/actions/user";
+import { useSelector, useDispatch } from "react-redux";
+
 //import api from "../services/api";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("tokenSECRETO");
+
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   function postUser() {
-    console.log(email + " " + password);
-
     // const response = await api.post("/auth/login", {
     //   email: email,
     //   password: password
     // });
+    const response = "Approved Token";
 
     if (email === "admin" && password === "admin") {
-      navigation.navigate("Home", { token: token });
+      dispatch({ type: actions.SAVE_EMAIL, payload: email });
+      dispatch({ type: actions.SAVE_PASSWORD, payload: password });
+      dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
+      navigation.navigate("Home");
     } else {
-      Alert.alert("Senha Incorreta");
+      dispatch({ type: actions.INVALID_TOKEN });
+      navigation.navigate("Home");
+      // Alert.alert("Senha Incorreta");
     }
   }
   return (

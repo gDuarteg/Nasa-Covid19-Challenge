@@ -8,72 +8,39 @@ import {
   Image,
   Alert
 } from "react-native";
-// import api from "../services/api";
 
-export default function Cart({ route, navigation }) {
+// import api from "../services/api";
+import { useSelector, useDispatch } from "react-redux";
+
+export default function Cart({ navigation }) {
   const [total, setTotal] = useState(0);
-  const [cart, setCart] = useState([
-    {
-      nome: "Sopa de Morcego",
-      ing: ["arroz", "carne", "salada"],
-      qnt: [10, 2, 5],
-      cat: "novidades",
-      desc: "Pode conter Corona Virus",
-      id: 101,
-      preço: 15.0
-    },
-    {
-      nome: "Prato de Herói",
-      ing: ["arroz", "carne", "salada"],
-      qnt: [10, 2, 5],
-      cat: "novidades",
-      desc:
-        "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-      id: 102,
-      preço: 30
-    },
-    {
-      nome: "Joelho de Cobra",
-      ing: ["arroz", "carne", "salada"],
-      qnt: [10, 2, 5],
-      cat: "novidades",
-      desc:
-        "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-      id: 103,
-      preço: 60
-    },
-    {
-      nome: "Asa de Macaco",
-      ing: ["arroz", "carne", "salada"],
-      qnt: [10, 2, 5],
-      cat: "novidades",
-      desc:
-        "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
-      id: 104,
-      preço: 120
-    }
-  ]);
+  const cart = useSelector(state => state.cart.cart);
+
+  const dispatch = useDispatch();
+
+  console.log("------------ CART ------------");
+  console.log(cart);
 
   useEffect(() => {
     sumPrice();
-  }, []);
+  }, [cart]);
 
   function sumPrice() {
     var respose = 0;
     for (var i in cart) {
-      respose += cart[i].preço;
+      respose += cart[i].price;
     }
     setTotal(respose);
   }
   function renderCart(item) {
     return (
       <View style={styles.cartLine}>
-        <Text style={styles.cartName}>{item.nome}</Text>
-        <Text style={styles.cartPrice}>{item.preço}</Text>
+        <Text style={styles.cartName}>{item.name}</Text>
+        <Text style={styles.cartPrice}>{item.price}</Text>
         <TouchableOpacity
           style={styles.itemTrash}
           onPress={() => {
-            removeItem(item);
+            dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item });
             sumPrice();
           }}
         >
@@ -85,14 +52,6 @@ export default function Cart({ route, navigation }) {
       </View>
     );
   }
-
-  function removeItem(item) {
-    var array = cart;
-    array.splice(array.indexOf(item), 1);
-    console.log(array);
-    setCart(array);
-  }
-
   return (
     <View style={styles.page}>
       <View style={styles.titleBar}>
@@ -102,10 +61,10 @@ export default function Cart({ route, navigation }) {
       <View>
         <FlatList
           data={cart}
-          renderItem={({ item: rowData }) => {
+          renderItem={({ item: rowData, index }) => {
             return <View>{renderCart(rowData)}</View>;
           }}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
 
@@ -115,6 +74,7 @@ export default function Cart({ route, navigation }) {
           style={styles.payBox}
           onPress={() => {
             Alert.alert("Compra realizada com sucesso !!!");
+            navigation.navigate("Home");
           }}
         >
           <Text style={styles.pay}>Confirmar</Text>

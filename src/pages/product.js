@@ -9,34 +9,29 @@ import {
   Image,
   Alert
 } from "react-native";
+
 import api from "../services/api";
+import { useSelector, useDispatch } from "react-redux";
 
-export default function Product({ route, navigation }) {
-  const { token } = route.params;
-  const { product } = route.params;
-  const [dish, setDish] = useState();
+export default function Product({ navigation }) {
+  console.log("****************** RODEI PAGINA PRODUCT ******************");
 
-  useEffect(() => {
-    getDishInfo();
-    //createDishArray();
-  }, []);
+  const user = useSelector(state => state.user);
+  const cart = useSelector(state => state.cart);
+  const product = useSelector(state => state.product.product);
 
-  const getDishInfo = async () => {
-    const respose = await api.get(`recipes/${product.name}`);
-    setDish(respose.data.data);
-    console.log(respose.data.data);
-  };
+  const dispatch = useDispatch();
 
-  // function createDishArray() {
-  //   var dishArray = [];
-  //   for (var i in product.ing) {
-  //     dishArray.push({
-  //       ing: product.ing[i],
-  //       qnt: product.qnt[i]
-  //     });
-  //   }
-  //   setDish(dishArray);
-  // }
+  // useEffect(() => {
+  //   getProductInfo();
+  // }, []);
+
+  // GET COM INFORMAÇÕES MAIS PROFUNDAS SOBRE O PRATO
+  // const getProductInfo = async () => {
+  //   const respose = await api.get(`recipes/${product.name}`);
+  //   dispatch({ type: "ADD_PRODUCT", payload: respose.data.data });
+  //   console.log(respose.data.data);
+  // };
 
   // Configuração de cada ingrediente do prato selecionado
   function configItem(item) {
@@ -54,7 +49,7 @@ export default function Product({ route, navigation }) {
             source={require("./images/minus.png")}
           />
         </TouchableOpacity>
-        <Text style={styles.itemQnt}>{item.weight}</Text>
+        <Text style={styles.itemQnt}>{item.qnt}</Text>
         <TouchableOpacity
           style={styles.itemPlus}
           onPress={() => {
@@ -73,31 +68,29 @@ export default function Product({ route, navigation }) {
         <Text style={styles.title}>{product.name}</Text>
       </View>
       <View style={styles.describeView}>
-        {/* <Text style={styles.describe}>{dish.describe}</Text> */}
-        <Text style={styles.describe}>
-          DESCRIÇÃO DO PRATO (adiconar no backend !!!)
-        </Text>
+        <Text style={styles.describe}>{product.desc}</Text>
       </View>
 
       <FlatList
-        data={dish.ingredients}
-        renderItem={({ item: rowData }) => {
+        data={product.ingredients}
+        renderItem={({ item: rowData, index }) => {
           return <View>{configItem(rowData)}</View>;
         }}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
       />
 
       <View style={styles.endBar}>
-        {/* <Text style={styles.price}>{`Valor: R$ ${dish.price}`}</Text> */}
-        <Text
-          style={styles.price}
-        >{`Valor: R$ (adicionar preço no backend !!!)`}</Text>
-
+        <Text style={styles.price}>{`Valor: R$ ${product.price}`}</Text>
         <TouchableOpacity
           style={styles.addBox}
           onPress={() => {
-            Alert.alert("Item Adicionado ao carrinho");
-            navigation.navigate("Menu", { token: token });
+            if (cart.length <= 0) {
+              dispatch({ type: "ADD_INIT_CART", payload: product });
+              navigation.navigate("Menu");
+            } else {
+              dispatch({ type: "ADD_CART", payload: product });
+              navigation.navigate("Menu");
+            }
           }}
         >
           <Text style={styles.add}>Adicionar</Text>

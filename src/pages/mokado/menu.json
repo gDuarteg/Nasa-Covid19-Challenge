@@ -1,229 +1,366 @@
 {
   "menuu": [
     {
-      "nome": "Sopa de Morcego",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Sopa de Morcego",
       "cat": "novidades",
       "desc": "Pode conter Corona Virus",
       "id": 101,
-      "preço": 15.0
+      "price": 15.0,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
+
     {
-      "nome": "Prato de Herói",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Prato de Herói",
       "cat": "novidades",
       "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
       "id": 102,
-      "preço": 30
+      "price": 30,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "Joelho de Cobra",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Joelho de Cobra",
       "cat": "novidades",
       "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
       "id": 103,
-      "preço": 60
+      "price": 60,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "Asa de Macaco",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Asa de Macaco",
       "cat": "novidades",
       "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
       "id": 104,
-      "preço": 120
+      "price": 120,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixNovo 5",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "mixNovo 5",
       "cat": "novidades",
       "desc": "novo pra vc",
       "id": 105,
-      "preço": 240
+      "price": 240,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixNovo 6",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "mixNovo 6",
       "cat": "novidades",
       "desc": "novo pra vc",
       "id": 106,
-      "preço": 480
+      "price": 480,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixNovo 7",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "novidades",
-      "desc": "novo pra vc",
-      "id": 108,
-      "preço": 960
-    },
-    {
-      "nome": "mixNovo 8",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "novidades",
-      "desc": "novo pra vc",
-      "id": 109,
-      "preço": 1920
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Sopa de Morcego Carne",
       "cat": "carne",
-      "desc": "novo pra vc",
+      "desc": "Pode conter Corona Virus",
       "id": 101,
-      "preço": 15.0
+      "price": 15.0,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
+    },
+
+    {
+      "name": "Prato de Herói sem carne",
+      "cat": "vegano",
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 102,
+      "price": 30,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixPeixe",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Joelho de Cobra peixe",
       "cat": "peixe",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 103,
+      "price": 60,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixVegano",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "Asa de Macaco carne",
+      "cat": "carne",
+      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "id": 104,
+      "price": 120,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
+    },
+    {
+      "name": "mixVelho 5",
       "cat": "vegano",
       "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
+      "id": 105,
+      "price": 240,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     },
     {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixPeixe",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "peixe",
-      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixVegano",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "vegano",
-      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "prato feito com petalas de rosas suiças temperado no sangue do mais nobre guerreiro de Hyrule",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixPeixe",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
+      "name": "mixPeixe",
       "cat": "peixe",
       "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixVegano",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "vegano",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixCarne",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "carne",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixPeixe",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "peixe",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
-    },
-    {
-      "nome": "mixVegano",
-      "ing": ["arroz", "carne", "salada"],
-      "qnt": [10, 2, 5],
-      "cat": "vegano",
-      "desc": "novo pra vc",
-      "id": 101,
-      "preço": 15.0
+      "id": 106,
+      "price": 480,
+      "ingredients": [
+        {
+          "name": "arroz",
+          "qnt": 2,
+          "id": 4001,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "salada",
+          "qnt": 2,
+          "id": 4002,
+          "cookingTime": 10,
+          "weights": 55
+        },
+        {
+          "name": "carne",
+          "qnt": 2,
+          "id": 4003,
+          "cookingTime": 10,
+          "weights": 55
+        }
+      ]
     }
   ]
 }

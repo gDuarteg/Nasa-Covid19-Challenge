@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from "react";
 import {
   Text,
@@ -10,8 +9,11 @@ import {
   TouchableOpacity
 } from "react-native";
 
-export default function Home({ route, navigation }) {
-  const { token } = route.params;
+import { useSelector } from "react-redux";
+
+export default function Home({ navigation }) {
+  console.log("****************** RODEI PAGINA HOME ******************");
+  const user = useSelector(state => state.user);
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.body}>
@@ -43,7 +45,7 @@ export default function Home({ route, navigation }) {
           <TouchableOpacity
             style={styles.viewButton}
             onPress={() => {
-              navigation.navigate("Menu", { token: token });
+              navigation.navigate("Menu");
             }}
           >
             <Text style={styles.button}>Iniciar Pedido</Text>

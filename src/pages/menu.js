@@ -9,66 +9,70 @@ import {
   Image
 } from "react-native";
 
+import { useSelector, useDispatch } from "react-redux";
+
 import api from "../services/api";
 import menuu from "./mokado/menu";
 
-export default function Menu({ route, navigation }) {
-  const { token } = route.params;
-  // const { CN } = route.params;
+export default function Menu({ navigation }) {
+  console.log("****************** RODEI PAGINA MENU ******************");
+
+  const user = useSelector(state => state.user);
+  const menu = useSelector(state => state.menu);
+  const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+
+  console.log("------------ CART ------------");
+  console.log(cart);
+
   const [category, setCategory] = useState([
     "novidades",
     "carne",
     "peixe",
     "vegano"
   ]);
-  const [select, setSelect] = useState("novidades");
-  const [menu, setMenu] = useState(menuu);
-  const [menu2, setMenu2] = useState();
+
+  const [select, setSelect] = useState(category[0]);
   const [menuCat, setMenuCat] = useState([]);
-  // const [cartNum, setCartNum] = useState();
 
   //Executa quando a página é criada
   useEffect(() => {
     getMenu();
-    createMenuCat();
   }, []);
 
-  //Executa quando uma categoria de itens é selecionada
+  //Executa quando "select" ou "menu" são modificados
   useEffect(() => {
-    createMenuCat();
-  }, [select]);
+    if (menu.length <= 0) {
+      console.log("Building Menu Page");
+    } else {
+      console.log("Setting Menu");
+      setMenuCat(menu.menu.menuu.filter(p => p.cat === select));
+    }
+  }, [menu, select]);
 
   const getMenu = async () => {
     try {
-      const response = await api.get("recipes/");
-      console.log(response.data.data);
-      setMenu2(response.data.data);
+      // const response = await api.get("recipes/");
+      // dispatch({ type: "ADD_MENU", payload: response.data.data });
+
+      dispatch({ type: "ADD_MENU", payload: menuu });
     } catch (erro) {
       console.log(erro);
     }
   };
-
-  function createMenuCat() {
-    var NewMenuCat = [];
-    for (var i in menu.menuu) {
-      if (menu.menuu[i].cat === select) {
-        NewMenuCat.push(menu.menuu[i]);
-      }
-    }
-    setMenuCat(NewMenuCat);
-  }
 
   function menuItem(item) {
     return (
       <TouchableOpacity
         style={styles.menuProductItem}
         onPress={() => {
-          navigation.navigate("Product", { product: item, token: token });
+          dispatch({ type: "ADD_PRODUCT", payload: item });
+          navigation.navigate("Product");
         }}
       >
         <Text style={styles.menuProductName}>{item.name}</Text>
-        {/* <Text style={styles.menuProductPrice}>{`R$ ${item.preço}`}</Text>
-        <Text style={styles.menuProductDescrib}>{item.desc}</Text> */}
+        <Text style={styles.menuProductPrice}>{`R$ ${item.price}`}</Text>
+        <Text style={styles.menuProductDescrib}>{item.desc}</Text>
       </TouchableOpacity>
     );
   }
@@ -103,11 +107,11 @@ export default function Menu({ route, navigation }) {
       <View style={styles.menu}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={menu2}
-          renderItem={({ item: rowData }) => {
+          data={menuCat}
+          renderItem={({ item: rowData, index }) => {
             return <View>{menuItem(rowData)}</View>;
           }}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
 
@@ -116,10 +120,10 @@ export default function Menu({ route, navigation }) {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={category}
-          renderItem={({ item: rowData }) => {
+          renderItem={({ item: rowData, index }) => {
             return <View>{catItem(rowData)}</View>;
           }}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
     </View>
