@@ -14,63 +14,70 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Payment({ navigation }) {
-  const [total, setTotal] = useState(0);
-  const cart = useSelector(state => state.cart.cart);
+  const user = useSelector(state => state.user);
+  const cart = useSelector(state => state.cart);
 
   const dispatch = useDispatch();
 
   console.log("------------ CART ------------");
   console.log(cart);
+  console.log("------------ USER ------------");
+  console.log(user);
 
-  useEffect(() => {
-    sumPrice();
-  }, [cart]);
-
-  function sumPrice() {
-    var respose = 0;
-    for (var i in cart) {
-      respose += cart[i].price;
+  async function postCart() {
+    console.log("enviando pedido ao beckend");
+    const response = await api.post("payment/", {
+      token: user.token,
+      cart: cart
+    });
+    if (respose === "sucess") {
+      Alert.alert("Compra realizada com sucesso !!!");
+      navigation.navigate("TrackOrder");
     }
-    setTotal(respose);
   }
+
   return (
     <View style={styles.page}>
       <View style={styles.titleBar}>
         <Text style={styles.title}>Pagamento</Text>
       </View>
 
-      <ScrollView style={styles.body}>
-        <View>
+      <ScrollView style={styles.body} showsVerticalScrollIndicator={false}>
+        <View style={styles.itemView}>
           <Text style={styles.rowItem}>Tempo de preparo 5 min</Text>
         </View>
-        <View>
-          <Text style={styles.rowItem}>N de Produtos</Text>
-        </View>
-        <View>
-          <Text style={styles.rowItem}>Inserir Cupom de desconto</Text>
-        </View>
-        <View>
+        <View style={styles.itemView}>
           <Text style={styles.rowItem}>
-            Cartao de Crédito finalizado em *0123
+            Cartao de Crédito finalizado em{" "}
+            {user.cards[0].number.slice(user.cards[0].number.length - 4)}
           </Text>
         </View>
-        <View>
-          <Text style={styles.rowItem}>Dividir Conta</Text>
+        <View style={styles.itemView}>
+          <Text style={styles.rowItem}>Quantidade de Produtos: {cart.len}</Text>
         </View>
-        <View>
-          <Text>+ Produtos </Text>
-          <Text>+ Imposto</Text>
-          <Text>+ Gorjeta</Text>
-          <Text>- Desconto</Text>
+        {/* <View style={styles.itemView}>
+          <Text style={styles.rowItem}>Dividir Conta</Text>
+        </View> */}
+        <View style={styles.itemView}>
+          <Text style={styles.rowItem}>Inserir Cupom de desconto</Text>
+        </View>
+        <View style={styles.itemViewSumary}>
+          <Text style={styles.rowItem}> Sumário</Text>
+          <Text style={styles.rowSubItem}>+ Produtos </Text>
+          <Text style={styles.rowSubItem}>+ Imposto</Text>
+          <Text style={styles.rowSubItem}>+ Gorjeta</Text>
+          <Text style={styles.rowSubItem}>- Desconto</Text>
         </View>
       </ScrollView>
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Total: R$ ${total}`}</Text>
+        <Text style={styles.price}>{`Total: R$ ${cart.price}`}</Text>
         <TouchableOpacity
           style={styles.payBox}
           onPress={() => {
+            // postCart();
             Alert.alert("Compra realizada com sucesso !!!");
+            dispatch({ type: "CLEAN_CART" });
             navigation.navigate("TrackOrder");
           }}
         >
@@ -101,7 +108,23 @@ const styles = StyleSheet.create({
     margin: 15
   },
   rowItem: {
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 15
+  },
+  rowSubItem: {
+    fontSize: 16,
+    marginLeft: 35
+  },
+  itemView: {
+    backgroundColor: "white",
+    marginVertical: 10,
+    height: 80
+  },
+  itemViewSumary: {
+    backgroundColor: "white",
+    marginVertical: 10,
+    height: 130
   },
   endBar: {
     position: "absolute",

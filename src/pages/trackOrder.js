@@ -14,25 +14,13 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 export default function trackOrder({ navigation }) {
-  const [total, setTotal] = useState(0);
-  const cart = useSelector(state => state.cart.cart);
+  const cart = useSelector(state => state.cart);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   console.log("------------ CART ------------");
   console.log(cart);
 
-  useEffect(() => {
-    sumPrice();
-  }, [cart]);
-
-  function sumPrice() {
-    var respose = 0;
-    for (var i in cart) {
-      respose += cart[i].price;
-    }
-    setTotal(respose);
-  }
   return (
     <View style={styles.page}>
       <View style={styles.titleBar}>
@@ -70,7 +58,6 @@ export default function trackOrder({ navigation }) {
         <TouchableOpacity
           style={styles.confirmButtonView}
           onPress={() => {
-            dispatch({ type: "CLEAN_CART" });
             navigation.navigate("Home");
           }}
         >

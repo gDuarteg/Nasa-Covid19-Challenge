@@ -14,6 +14,16 @@ import { useSelector } from "react-redux";
 export default function Home({ navigation }) {
   console.log("****************** RODEI PAGINA HOME ******************");
   const user = useSelector(state => state.user);
+
+  // function isSingedIn() {
+  //   // const response = await api.post("/auth/login", {
+  //     //   email: email,
+  //     //   password: password
+  //     // });
+  //   const response = "ok";
+  //   if () {}
+  // }
+
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.body}>

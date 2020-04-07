@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import api from "../services/api";
 import menuu from "./mokado/menu";
+import { isConfigurationAvailable } from "expo/build/AR";
 
 export default function Menu({ navigation }) {
   console.log("****************** RODEI PAGINA MENU ******************");
@@ -24,6 +25,7 @@ export default function Menu({ navigation }) {
 
   console.log("------------ CART ------------");
   console.log(cart);
+  // console.log(cart.length);
 
   const [category, setCategory] = useState([
     "novidades",
@@ -89,7 +91,15 @@ export default function Menu({ navigation }) {
       </TouchableOpacity>
     );
   }
-
+  function renderCartLen() {
+    if (cart.len > 0) {
+      return (
+        <View style={styles.cartLenView}>
+          <Text style={styles.cartLen}>{cart.len}</Text>
+        </View>
+      );
+    }
+  }
   return (
     <View style={styles.page}>
       <View style={styles.navBar}>
@@ -101,6 +111,7 @@ export default function Menu({ navigation }) {
           }}
         >
           <Image style={styles.imgCart} source={require("./images/cart.png")} />
+          {renderCartLen()}
         </TouchableOpacity>
       </View>
 
@@ -148,6 +159,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 30,
     fontWeight: "bold"
+  },
+  cartLen: {
+    justifyContent: "center",
+    textAlign: "center"
+  },
+  cartLenView: {
+    position: "absolute",
+    right: -5,
+    backgroundColor: "red",
+    width: 20,
+    height: 20,
+    borderRadius: 20
   },
   imgCart: {
     height: 40,

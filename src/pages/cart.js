@@ -11,27 +11,29 @@ import {
 
 // import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function Cart({ navigation }) {
-  const [total, setTotal] = useState(0);
-  const cart = useSelector(state => state.cart.cart);
+  // const [total, setTotal] = useState(0);
+  const cart = useSelector(state => state.cart);
 
   const dispatch = useDispatch();
-
+  console.log("****************** RODEI PAGINA CART ******************");
   console.log("------------ CART ------------");
   console.log(cart);
+  // console.log(cart.cart[0].price);
 
-  useEffect(() => {
-    sumPrice();
-  }, [cart]);
+  // useEffect(() => {
+  //   sumPrice();
+  // }, [cart]);
 
-  function sumPrice() {
-    var respose = 0;
-    for (var i in cart) {
-      respose += cart[i].price;
-    }
-    setTotal(respose);
-  }
+  // function sumPrice() {
+  //   var respose = 0;
+  //   for (var i in cart.cart) {
+  //     respose += cart.cart[i].price;
+  //   }
+  //   setTotal(respose);
+  // }
   function renderCart(item) {
     return (
       <View style={styles.cartLine}>
@@ -41,7 +43,7 @@ export default function Cart({ navigation }) {
           style={styles.itemTrash}
           onPress={() => {
             dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item });
-            sumPrice();
+            // sumPrice();
           }}
         >
           <Image
@@ -60,7 +62,7 @@ export default function Cart({ navigation }) {
 
       <View>
         <FlatList
-          data={cart}
+          data={cart.cart}
           renderItem={({ item: rowData, index }) => {
             return <View>{renderCart(rowData)}</View>;
           }}
@@ -69,7 +71,7 @@ export default function Cart({ navigation }) {
       </View>
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Total: R$ ${total}`}</Text>
+        <Text style={styles.price}>{`Total: R$ ${cart.price}`}</Text>
         <TouchableOpacity
           style={styles.payBox}
           onPress={() => {

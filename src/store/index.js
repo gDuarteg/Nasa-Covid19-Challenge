@@ -7,13 +7,28 @@ import product from "./reducers/product";
 
 initialState = {
   user: {
+    name: "initialName",
+    phone: "987654321",
     email: "InitialEmail",
     password: "InitialPassword",
-    token: "InitialToken"
+    token: "InitialToken",
+    cards: [
+      {
+        name: "nameInCard",
+        number: "1234 1234 1234 1234",
+        cpf: "1234565789",
+        valid: "01/30",
+        securityCode: "123"
+      }
+    ]
   },
   menu: [],
   product: {},
-  cart: []
+  cart: {
+    cart: [],
+    price: 0,
+    len: 0
+  }
 };
 
 // Root Reducer

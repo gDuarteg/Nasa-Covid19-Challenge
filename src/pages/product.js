@@ -15,13 +15,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Product({ navigation }) {
   console.log("****************** RODEI PAGINA PRODUCT ******************");
-
   const user = useSelector(state => state.user);
   const cart = useSelector(state => state.cart);
   const product = useSelector(state => state.product.product);
 
   const dispatch = useDispatch();
-
+  console.log(cart);
   // useEffect(() => {
   //   getProductInfo();
   // }, []);
@@ -84,7 +83,7 @@ export default function Product({ navigation }) {
         <TouchableOpacity
           style={styles.addBox}
           onPress={() => {
-            if (cart.length <= 0) {
+            if (cart.len <= 0) {
               dispatch({ type: "ADD_INIT_CART", payload: product });
               navigation.navigate("Menu");
             } else {
