@@ -162,7 +162,8 @@ const styles = StyleSheet.create({
   },
   cartLen: {
     justifyContent: "center",
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: "bold"
   },
   cartLenView: {
     position: "absolute",

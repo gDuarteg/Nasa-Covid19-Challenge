@@ -17,10 +17,11 @@ export default function Product({ navigation }) {
   console.log("****************** RODEI PAGINA PRODUCT ******************");
   const user = useSelector(state => state.user);
   const cart = useSelector(state => state.cart);
-  const product = useSelector(state => state.product.product);
+  const product = useSelector(state => state.product);
 
   const dispatch = useDispatch();
-  console.log(cart);
+  console.log("---------------- PRODUCT --------------");
+  console.log(product);
   // useEffect(() => {
   //   getProductInfo();
   // }, []);
@@ -40,7 +41,7 @@ export default function Product({ navigation }) {
         <TouchableOpacity
           style={styles.itemMinus}
           onPress={() => {
-            Alert.alert("Menos");
+            dispatch({ type: "DEC_INGREDIENT", payload: item });
           }}
         >
           <Image
@@ -52,7 +53,7 @@ export default function Product({ navigation }) {
         <TouchableOpacity
           style={styles.itemPlus}
           onPress={() => {
-            Alert.alert(`Mais`);
+            dispatch({ type: "INC_INGREDIENT", payload: item });
           }}
         >
           <Image style={styles.imgPlus} source={require("./images/plus.png")} />
