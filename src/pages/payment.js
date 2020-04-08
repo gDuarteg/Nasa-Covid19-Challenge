@@ -57,16 +57,15 @@ export default function Payment({ navigation }) {
         </View>
         {/* <View style={styles.itemView}>
           <Text style={styles.rowItem}>Dividir Conta</Text>
-        </View> */}
+        </View>
         <View style={styles.itemView}>
           <Text style={styles.rowItem}>Inserir Cupom de desconto</Text>
-        </View>
+        </View> */}
         <View style={styles.itemViewSumary}>
           <Text style={styles.rowItem}> Sumário</Text>
-          <Text style={styles.rowSubItem}>+ Produtos </Text>
-          <Text style={styles.rowSubItem}>+ Imposto</Text>
-          <Text style={styles.rowSubItem}>+ Gorjeta</Text>
-          <Text style={styles.rowSubItem}>- Desconto</Text>
+          <Text style={styles.rowSubItem}>+ Produtos {cart.price}</Text>
+          <Text style={styles.rowSubItem}>+ Imposto {0}</Text>
+          <Text style={styles.rowSubItem}>- Desconto {0}</Text>
         </View>
       </ScrollView>
 
@@ -117,14 +116,18 @@ const styles = StyleSheet.create({
     marginLeft: 35
   },
   itemView: {
-    backgroundColor: "white",
+    backgroundColor: "lightgray",
     marginVertical: 10,
-    height: 80
+    height: 80,
+    borderWidth: 0.7,
+    borderRadius: 8
   },
   itemViewSumary: {
-    backgroundColor: "white",
+    backgroundColor: "lightgray",
     marginVertical: 10,
-    height: 130
+    height: 100,
+    borderWidth: 0.7,
+    borderRadius: 8
   },
   endBar: {
     position: "absolute",

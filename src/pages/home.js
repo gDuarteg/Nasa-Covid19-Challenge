@@ -30,27 +30,6 @@ export default function Home({ navigation }) {
         <View>
           <Text style={styles.title}>Bytes</Text>
         </View>
-
-        <View style={styles.viewConfig}>
-          <TouchableOpacity
-            style={styles.buttonConfig}
-            onPress={() => Alert.alert("Ir Para Config")}
-          >
-            <Image
-              style={styles.imgConfig}
-              source={require("./images/config.png")}
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={styles.buttonNav}
-            onPress={() => Alert.alert("Abrir NavBar")}
-          >
-            <Image style={styles.imgNav} source={require("./images/nav.png")} />
-          </TouchableOpacity>
-        </View>
-
         <View>
           <TouchableOpacity
             style={styles.viewButtonMenu}
@@ -67,7 +46,7 @@ export default function Home({ navigation }) {
             style={styles.viewButtonCommunity}
             onPress={() => {
               Alert.alert("Comunidade");
-              // navigation.navigate("Menu");
+              // navigation.navigate("Comunidade");
             }}
           >
             <Text style={styles.buttonCommunity}>Comunidade</Text>
@@ -125,27 +104,5 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignSelf: "center",
     justifyContent: "center"
-  },
-  imgConfig: {
-    height: 40,
-    width: 40
-  },
-  buttonConfig: {
-    position: "absolute",
-    marginTop: 20
-  },
-  viewConfig: {
-    alignItems: "flex-end",
-    marginRight: 15
-  },
-  imgNav: {
-    height: 40,
-    width: 40
-  },
-  buttonNav: {
-    alignItems: "flex-start",
-    marginLeft: 15,
-    width: 40,
-    marginTop: 20
   }
 });

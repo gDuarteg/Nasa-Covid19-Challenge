@@ -32,10 +32,10 @@ export default function Login({ navigation }) {
       dispatch({ type: actions.SAVE_EMAIL, payload: email });
       dispatch({ type: actions.SAVE_PASSWORD, payload: password });
       dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
-      navigation.navigate("Home");
+      navigation.navigate("Root");
     } else {
       dispatch({ type: actions.INVALID_TOKEN });
-      navigation.navigate("Home");
+      navigation.navigate("Root");
       // Alert.alert("Senha Incorreta");
     }
   }
