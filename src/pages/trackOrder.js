@@ -82,10 +82,12 @@ const styles = StyleSheet.create({
     height: 120
   },
   timeText: {
+    color: colors.title,
     textAlign: "center",
     fontSize: 20
   },
   time: {
+    color: colors.title,
     textAlign: "center",
     fontSize: 50
   },
@@ -95,6 +97,7 @@ const styles = StyleSheet.create({
     margin: 7
   },
   statusText: {
+    color: colors.text,
     marginLeft: 10,
     fontSize: 18
   },
@@ -118,6 +121,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   confirmButton: {
+    color: colors.text,
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "center",

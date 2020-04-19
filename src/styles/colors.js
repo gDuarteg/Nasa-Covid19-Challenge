@@ -1,4 +1,6 @@
 const colors = {
+  loginBackground: "steelblue",
+
   headerBackground: "steelblue",
   headerText: "black",
 

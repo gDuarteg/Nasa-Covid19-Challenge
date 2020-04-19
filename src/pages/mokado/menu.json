@@ -1,9 +1,9 @@
 {
   "menuu": [
     {
-      "name": "Sopa de Morcego",
+      "name": "Prato 1",
       "cat": "novidades",
-      "desc": "Pode conter Corona Virus",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "id": 101,
       "price": 15.0,
       "ingredients": [
@@ -32,9 +32,9 @@
     },
 
     {
-      "name": "Prato de Herói",
+      "name": "Prato 2",
       "cat": "novidades",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 102,
       "price": 30,
       "ingredients": [
@@ -62,9 +62,9 @@
       ]
     },
     {
-      "name": "Joelho de Cobra",
+      "name": "Prato 3",
       "cat": "novidades",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 103,
       "price": 60,
       "ingredients": [
@@ -92,9 +92,9 @@
       ]
     },
     {
-      "name": "Asa de Macaco",
+      "name": "Prato 4",
       "cat": "novidades",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 104,
       "price": 120,
       "ingredients": [
@@ -122,9 +122,9 @@
       ]
     },
     {
-      "name": "mixNovo 5",
+      "name": "Prato 6",
       "cat": "novidades",
-      "desc": "novo pra vc",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 105,
       "price": 240,
       "ingredients": [
@@ -152,9 +152,9 @@
       ]
     },
     {
-      "name": "mixNovo 6",
+      "name": "Prato 7",
       "cat": "novidades",
-      "desc": "novo pra vc",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 106,
       "price": 480,
       "ingredients": [
@@ -182,9 +182,9 @@
       ]
     },
     {
-      "name": "Sopa de Morcego Carne",
+      "name": "Prato 8",
       "cat": "carne",
-      "desc": "Pode conter Corona Virus",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 101,
       "price": 15.0,
       "ingredients": [
@@ -213,9 +213,9 @@
     },
 
     {
-      "name": "Prato de Herói sem carne",
+      "name": "Prato 9",
       "cat": "vegano",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 102,
       "price": 30,
       "ingredients": [
@@ -243,9 +243,9 @@
       ]
     },
     {
-      "name": "Joelho de Cobra peixe",
+      "name": "Prato 10",
       "cat": "peixe",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 103,
       "price": 60,
       "ingredients": [
@@ -273,9 +273,9 @@
       ]
     },
     {
-      "name": "Asa de Macaco carne",
+      "name": "Prato 11",
       "cat": "carne",
-      "desc": "prato feito com petalas de rosas suiças marinado no sangue do mais nobre guerreiro de Hyrule",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 104,
       "price": 120,
       "ingredients": [
@@ -303,9 +303,9 @@
       ]
     },
     {
-      "name": "mixVelho 5",
+      "name": "Prato 12",
       "cat": "vegano",
-      "desc": "novo pra vc",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 105,
       "price": 240,
       "ingredients": [
@@ -333,9 +333,9 @@
       ]
     },
     {
-      "name": "mixPeixe",
+      "name": "Prato 13",
       "cat": "peixe",
-      "desc": "novo pra vc",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "id": 106,
       "price": 480,
       "ingredients": [

@@ -9,19 +9,28 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 //COMPONENTS
 
-// PAGES
+// AUTH PAGES
 import Login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import forgotPassword from "./pages/forgotPassword";
 
+// ORDER PAGES
 import Home from "./pages/home";
 import Menu from "./pages/menu";
 import Product from "./pages/product";
 import Cart from "./pages/cart";
-import payment from "./pages/payment";
+import Payment from "./pages/payment";
 import trackOrder from "./pages/trackOrder";
 
-import Profile from "./pages/profile";
+// PROFILE PAGES
+import Profile from "./pages/ProfileTab/Profile";
+import Collection from "./pages/ProfileTab/Collection";
+import Config from "./pages/ProfileTab/Config";
+import Notification from "./pages/ProfileTab/Notification";
+import PaymentConfig from "./pages/ProfileTab/PaymentConfig";
+import ProfileConfig from "./pages/ProfileTab/ProfileConfig";
+import Wallet from "./pages/ProfileTab/Wallet";
+import { red } from "color-name";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -96,7 +105,7 @@ function HomeScreen({ navigation }) {
       />
       <Stack.Screen
         name="Payment"
-        component={payment}
+        component={Payment}
         options={{ title: "Pagamento" }}
       />
       <Stack.Screen
@@ -111,13 +120,49 @@ function ProfileScreen() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true
+        headerStyle: {
+          backgroundColor: colors.headerBackground
+        },
+        headerTintColor: colors.headerText,
+        headerTitleStyle: {
+          fontWeight: "bold"
+        }
       }}
     >
-      <Stack.Screen name="Profile" component={Profile} />
-      {/* <Stack.Screen name="Wallet" component={Cart} />
-      <Stack.Screen name="PaymentConfig" component={payment} />
-      <Stack.Screen name="Config" component={trackOrder} /> */}
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: "Perfil",
+          headerTitleAlign: "center"
+        }}
+      />
+      <Stack.Screen
+        name="Wallet"
+        component={Wallet}
+        options={{ title: "Carteira" }}
+      />
+      <Stack.Screen
+        name="Collection"
+        component={Collection}
+        options={{ title: "Coleção" }}
+      />
+      <Stack.Screen
+        name="Notification"
+        component={Notification}
+        options={{ title: "Notificações" }}
+      />
+      <Stack.Screen
+        name="PaymentConfig"
+        component={PaymentConfig}
+        options={{ title: "Formas de Pagamento" }}
+      />
+      <Stack.Screen
+        name="ProfileConfig"
+        component={ProfileConfig}
+        options={{ title: "Editar Dados" }}
+      />
+      <Stack.Screen name="Config" component={Config} />
     </Stack.Navigator>
   );
 }
@@ -166,8 +211,8 @@ export default function Routes() {
 
 const styles = StyleSheet.create({
   imgCart: {
-    height: 40,
-    width: 40
+    height: 35,
+    width: 35
   },
   cartButton: {
     position: "absolute",

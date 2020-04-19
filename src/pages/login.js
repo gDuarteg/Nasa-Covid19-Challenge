@@ -16,6 +16,8 @@ import {
 import * as actions from "../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
 
+import { colors } from "../styles";
+
 //import api from "../services/api";
 
 export default function Login({ navigation }) {
@@ -25,7 +27,7 @@ export default function Login({ navigation }) {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  function postUser() {
+  async function postUser() {
     // const response = await api.post("/auth/login", {
     //   email: email,
     //   password: password
@@ -72,7 +74,7 @@ export default function Login({ navigation }) {
         </TouchableOpacity>
         <View>
           <Text
-            style={styles.forgotPassword}
+            style={styles.loginOptionsText}
             onPress={() => {
               navigation.navigate("CreateAccount");
             }}
@@ -80,7 +82,7 @@ export default function Login({ navigation }) {
             Criar Conta
           </Text>
           <Text
-            style={styles.forgotPassword}
+            style={styles.loginOptionsText}
             onPress={() => {
               navigation.navigate("ForgotPassword");
             }}
@@ -95,9 +97,8 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
   scrollView: {
-    // marginTop: 49,
     flex: 1,
-    backgroundColor: "steelblue"
+    backgroundColor: colors.loginBackground
   },
   body: {
     justifyContent: "center",
@@ -106,6 +107,7 @@ const styles = StyleSheet.create({
     marginTop: 70
   },
   title: {
+    color: colors.title,
     fontSize: hp("10%"),
     fontFamily: "Roboto",
     marginVertical: 100,
@@ -113,26 +115,26 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   TextInput: {
-    borderBottomColor: "black",
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     marginTop: 10
   },
   button: {
     fontSize: 20,
     textAlign: "center",
-    color: "white",
+    color: colors.buttonText,
     fontWeight: "bold"
   },
   viewButton: {
     justifyContent: "center",
-    backgroundColor: "black",
+    backgroundColor: colors.buttonBackgrond,
     borderRadius: 8,
     width: 200,
     height: 50,
     marginTop: 10
   },
-  forgotPassword: {
-    color: "black",
+  loginOptionsText: {
+    color: colors.text,
     textAlign: "center",
     marginTop: 5
   }

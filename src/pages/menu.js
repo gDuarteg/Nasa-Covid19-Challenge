@@ -53,7 +53,7 @@ export default function Menu({ navigation }) {
     }
   }, [menu, select]);
 
-  const getMenu = async () => {
+  async function getMenu() {
     try {
       // const response = await api.get("recipes/");
       // dispatch({ type: "ADD_MENU", payload: response.data.data });
@@ -62,7 +62,7 @@ export default function Menu({ navigation }) {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   function menuItem(item) {
     return (

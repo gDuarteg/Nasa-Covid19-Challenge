@@ -11,6 +11,7 @@ import {
 
 import * as actions from "../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
+import { colors } from "../styles";
 
 //import api from "../services/api";
 
@@ -88,7 +89,7 @@ export default function CreateAccount({ navigation }) {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    backgroundColor: "steelblue"
+    backgroundColor: colors.loginBackground
   },
   body: {
     justifyContent: "center",
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     marginTop: 70
   },
   title: {
+    color: colors.title,
     fontSize: 50,
     fontFamily: "Roboto",
     marginVertical: 100,
@@ -104,27 +106,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   TextInput: {
-    borderBottomColor: "black",
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     marginTop: 10
   },
   button: {
     fontSize: 20,
     textAlign: "center",
-    color: "white",
+    color: colors.buttonText,
     fontWeight: "bold"
   },
   viewButton: {
     justifyContent: "center",
-    backgroundColor: "black",
+    backgroundColor: colors.buttonBackgrond,
     borderRadius: 8,
     width: 200,
     height: 50,
     marginTop: 10
-  },
-  forgotPassword: {
-    color: "black",
-    textAlign: "center",
-    marginTop: 5
   }
 });

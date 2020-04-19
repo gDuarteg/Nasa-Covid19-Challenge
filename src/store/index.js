@@ -9,7 +9,7 @@ initialState = {
   user: {
     name: "initialName",
     phone: "987654321",
-    email: "InitialEmail",
+    email: "InitialEmail@email.com",
     password: "InitialPassword",
     token: "InitialToken",
     cards: [
