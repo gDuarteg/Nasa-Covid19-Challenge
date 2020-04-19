@@ -10,6 +10,8 @@ import {
   Alert
 } from "react-native";
 
+import { colors } from "../styles";
+
 import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -46,7 +48,7 @@ export default function Product({ navigation }) {
         >
           <Image
             style={styles.imgMinus}
-            source={require("./images/minus.png")}
+            source={require("../assets/minus.png")}
           />
         </TouchableOpacity>
         <Text style={styles.itemQnt}>{item.qnt}</Text>
@@ -56,7 +58,10 @@ export default function Product({ navigation }) {
             dispatch({ type: "INC_INGREDIENT", payload: item });
           }}
         >
-          <Image style={styles.imgPlus} source={require("./images/plus.png")} />
+          <Image
+            style={styles.imgPlus}
+            source={require("../assets/plus.png")}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -64,9 +69,6 @@ export default function Product({ navigation }) {
 
   return (
     <View style={styles.page}>
-      <View style={styles.titleBar}>
-        <Text style={styles.title}>{product.name}</Text>
-      </View>
       <View style={styles.describeView}>
         <Text style={styles.describe}>{product.desc}</Text>
       </View>
@@ -101,28 +103,16 @@ export default function Product({ navigation }) {
 }
 const styles = StyleSheet.create({
   page: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "silver"
-  },
-  titleBar: {
-    top: 0,
-    right: 0,
-    left: 0,
-    height: 120,
-    backgroundColor: "steelblue",
-    justifyContent: "center"
-  },
-  title: {
-    fontSize: 30,
-    textAlign: "center"
+    backgroundColor: colors.page
   },
   describeView: {
     height: 150,
-    backgroundColor: "lightgray",
+    backgroundColor: colors.itemBackground,
     margin: 10
   },
   describe: {
+    color: colors.text,
     fontSize: 15,
     left: 10,
     marginRight: 10
@@ -131,13 +121,15 @@ const styles = StyleSheet.create({
     margin: 10,
     flexDirection: "row",
     borderBottomWidth: 0.5,
-    borderBottomColor: "black"
+    borderBottomColor: colors.border
   },
   itemIng: {
+    color: colors.text,
     fontSize: 19,
     marginLeft: 10
   },
   itemQnt: {
+    color: colors.text,
     position: "absolute",
     right: 40,
     fontSize: 19,
@@ -164,17 +156,19 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "gray",
+    backgroundColor: colors.endBarBackground,
     height: 60,
     justifyContent: "center"
   },
   price: {
+    color: colors.text,
     position: "absolute",
     fontWeight: "bold",
     fontSize: 30,
     left: 20
   },
   add: {
+    color: colors.text,
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "right",
@@ -182,7 +176,7 @@ const styles = StyleSheet.create({
   },
   addBox: {
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: colors.border,
     borderRadius: 8,
     alignSelf: "flex-end",
     right: 10

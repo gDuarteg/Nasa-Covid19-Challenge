@@ -10,6 +10,8 @@ import {
   ScrollView
 } from "react-native";
 
+import { colors } from "../styles";
+
 // import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -23,10 +25,6 @@ export default function trackOrder({ navigation }) {
 
   return (
     <View style={styles.page}>
-      <View style={styles.titleBar}>
-        <Text style={styles.title}>Acompanhar Pedido</Text>
-      </View>
-
       <View style={styles.body}>
         <View style={styles.timeView}>
           <Text style={styles.timeText}>Tempo para ficar pronto</Text>
@@ -70,19 +68,8 @@ export default function trackOrder({ navigation }) {
 
 const styles = StyleSheet.create({
   page: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "silver"
-  },
-  titleBar: {
-    height: 60,
-    backgroundColor: "steelblue",
-    justifyContent: "center"
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 30,
-    textAlign: "center"
+    backgroundColor: colors.page
   },
   body: {
     margin: 15
@@ -90,7 +77,7 @@ const styles = StyleSheet.create({
   timeView: {
     justifyContent: "center",
     borderBottomWidth: 0.5,
-    borderBottomColor: "black",
+    borderBottomColor: colors.border,
     marginVertical: 20,
     height: 120
   },
@@ -114,7 +101,7 @@ const styles = StyleSheet.create({
   status: {
     position: "absolute",
     alignSelf: "flex-end",
-    borderColor: "black",
+    borderColor: colors.border,
     margin: 5,
     borderWidth: 2,
     width: 15,
@@ -127,7 +114,7 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     height: 60,
-    backgroundColor: "gray",
+    backgroundColor: colors.endBarBackground,
     justifyContent: "center"
   },
   confirmButton: {
@@ -139,7 +126,7 @@ const styles = StyleSheet.create({
   },
   confirmButtonView: {
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: colors.border,
     borderRadius: 8,
     alignSelf: "center",
     right: 10

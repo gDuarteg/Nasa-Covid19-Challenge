@@ -9,11 +9,12 @@ import {
   Image
 } from "react-native";
 
+import { colors } from "../styles";
+
 import { useSelector, useDispatch } from "react-redux";
 
 import api from "../services/api";
 import menuu from "./mokado/menu";
-import { isConfigurationAvailable } from "expo/build/AR";
 
 export default function Menu({ navigation }) {
   console.log("****************** RODEI PAGINA MENU ******************");
@@ -58,8 +59,8 @@ export default function Menu({ navigation }) {
       // dispatch({ type: "ADD_MENU", payload: response.data.data });
 
       dispatch({ type: "ADD_MENU", payload: menuu });
-    } catch (erro) {
-      console.log(erro);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -91,30 +92,8 @@ export default function Menu({ navigation }) {
       </TouchableOpacity>
     );
   }
-  function renderCartLen() {
-    if (cart.len > 0) {
-      return (
-        <View style={styles.cartLenView}>
-          <Text style={styles.cartLen}>{cart.len}</Text>
-        </View>
-      );
-    }
-  }
   return (
     <View style={styles.page}>
-      <View style={styles.navBar}>
-        <Text style={styles.title}>Menu Bytes</Text>
-        <TouchableOpacity
-          style={styles.cartButton}
-          onPress={() => {
-            navigation.navigate("Cart");
-          }}
-        >
-          <Image style={styles.imgCart} source={require("./images/cart.png")} />
-          {renderCartLen()}
-        </TouchableOpacity>
-      </View>
-
       <View style={styles.menu}>
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -143,65 +122,26 @@ export default function Menu({ navigation }) {
 
 const styles = StyleSheet.create({
   page: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "silver"
+    backgroundColor: colors.page
   },
-  navBar: {
-    backgroundColor: "steelblue",
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  title: {
-    color: "black",
-    position: "absolute",
-    textAlign: "center",
-    fontSize: 30,
-    fontWeight: "bold"
-  },
-  cartLen: {
-    justifyContent: "center",
-    textAlign: "center",
-    fontWeight: "bold"
-  },
-  cartLenView: {
-    position: "absolute",
-    right: -5,
-    backgroundColor: "red",
-    width: 20,
-    height: 20,
-    borderRadius: 20
-  },
-  imgCart: {
-    height: 40,
-    width: 40
-  },
-  cartButton: {
-    position: "absolute",
-    right: 20
-  },
-
   menu: {
-    position: "absolute",
     alignItems: "center",
-    left: 10,
-    right: 10,
-    top: 80,
-    bottom: 65
+    marginTop: 15
   },
   menuProductItem: {
     marginTop: 10,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "lightgray",
-    borderColor: "black",
+    backgroundColor: colors.itemBackground,
+    borderColor: colors.border,
     borderWidth: 0.4,
     height: 150,
     width: 370
   },
   menuProductName: {
+    color: colors.text,
     position: "absolute",
     fontSize: 25,
     fontWeight: "bold",
@@ -209,6 +149,7 @@ const styles = StyleSheet.create({
     top: 15
   },
   menuProductPrice: {
+    color: colors.text,
     position: "absolute",
     fontSize: 20,
     fontWeight: "bold",
@@ -217,7 +158,7 @@ const styles = StyleSheet.create({
   menuProductDescrib: {
     position: "absolute",
     fontSize: 15,
-    color: "gray",
+    color: colors.textLight,
     left: 30,
     top: 50,
     width: 180,
@@ -226,8 +167,8 @@ const styles = StyleSheet.create({
 
   categoryBar: {
     position: "absolute",
-    borderColor: "black",
-    backgroundColor: "silver",
+    borderColor: colors.border,
+    backgroundColor: colors.page,
     borderTopWidth: 1,
     height: 65,
     left: 0,
@@ -235,15 +176,16 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   categoryText: {
+    color: colors.text,
     textAlign: "center",
     fontSize: 22,
     fontWeight: "bold"
   },
   categoryItem: {
-    backgroundColor: "gray",
+    backgroundColor: colors.endBarBackground,
     textAlign: "center",
     justifyContent: "center",
-    borderColor: "black",
+    borderColor: colors.border,
     borderWidth: 1,
     borderRadius: 8,
     height: 50,

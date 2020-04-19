@@ -9,6 +9,8 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import { colors } from "../styles";
+
 import { useSelector } from "react-redux";
 
 export default function Home({ navigation }) {
@@ -27,9 +29,9 @@ export default function Home({ navigation }) {
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.body}>
-        <View>
+        {/* <View>
           <Text style={styles.title}>Bytes</Text>
-        </View>
+        </View> */}
         <View>
           <TouchableOpacity
             style={styles.viewButtonMenu}
@@ -59,29 +61,21 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   scrollView: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "steelblue"
-  },
-  title: {
-    position: "absolute",
-    fontSize: 56,
-    fontFamily: "Roboto",
-    alignSelf: "center",
-    fontWeight: "bold"
+    backgroundColor: colors.page
   },
   body: {
     flex: 1
   },
   buttonMenu: {
-    color: "white",
+    color: colors.buttonText,
     textAlign: "center",
     justifyContent: "center",
     fontWeight: "bold",
     fontSize: 30
   },
   viewButtonMenu: {
-    backgroundColor: "black",
+    backgroundColor: colors.buttonBackgrond,
     width: 300,
     height: 130,
     borderRadius: 8,

@@ -9,6 +9,8 @@ import {
   Alert
 } from "react-native";
 
+import { colors } from "../styles";
+
 // import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
 import { Colors } from "react-native/Libraries/NewAppScreen";
@@ -48,7 +50,7 @@ export default function Cart({ navigation }) {
         >
           <Image
             style={styles.imgTrash}
-            source={require("./images/trash.png")}
+            source={require("../assets/trash.png")}
           />
         </TouchableOpacity>
       </View>
@@ -56,10 +58,6 @@ export default function Cart({ navigation }) {
   }
   return (
     <View style={styles.page}>
-      <View style={styles.titleBar}>
-        <Text style={styles.title}>Pedido</Text>
-      </View>
-
       <View>
         <FlatList
           data={cart.cart}
@@ -88,32 +86,23 @@ export default function Cart({ navigation }) {
 
 const styles = StyleSheet.create({
   page: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "silver"
-  },
-  titleBar: {
-    height: 60,
-    backgroundColor: "steelblue",
-    justifyContent: "center"
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 30,
-    textAlign: "center"
+    backgroundColor: colors.page
   },
   cartLine: {
     flexDirection: "row",
     margin: 15,
     top: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: "black"
+    borderBottomColor: colors.border
   },
   cartName: {
+    color: colors.text,
     fontSize: 19,
     textAlign: "left"
   },
   cartPrice: {
+    color: colors.text,
     position: "absolute",
     right: 50,
     fontSize: 19,
@@ -133,10 +122,11 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     height: 60,
-    backgroundColor: "gray",
+    backgroundColor: colors.endBarBackground,
     justifyContent: "center"
   },
   price: {
+    color: colors.text,
     position: "absolute",
     fontSize: 30,
     textAlign: "left",
@@ -144,6 +134,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   pay: {
+    color: colors.text,
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "right",
@@ -151,7 +142,7 @@ const styles = StyleSheet.create({
   },
   payBox: {
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: colors.border,
     borderRadius: 8,
     alignSelf: "flex-end",
     right: 10

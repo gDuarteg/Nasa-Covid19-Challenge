@@ -1,6 +1,8 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
+import { colors } from "./styles";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -24,19 +26,84 @@ import Profile from "./pages/profile";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
+  const product = useSelector(state => state.product);
+  const cart = useSelector(state => state.cart);
+
+  function renderCartLen() {
+    if (cart.len > 0) {
+      return (
+        <View style={styles.cartLenView}>
+          <Text style={styles.cartLen}>{cart.len}</Text>
+        </View>
+      );
+    }
+  }
+
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false
+        headerStyle: {
+          backgroundColor: colors.headerBackground
+        },
+        headerTintColor: colors.headerText,
+        headerTitleStyle: {
+          fontWeight: "bold"
+        }
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Product" component={Product} />
-      <Stack.Screen name="Menu" component={Menu} />
-      <Stack.Screen name="Cart" component={Cart} />
-      <Stack.Screen name="Payment" component={payment} />
-      <Stack.Screen name="TrackOrder" component={trackOrder} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: "Bytes Home",
+          headerTitleAlign: "center"
+        }}
+      />
+      <Stack.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          title: "Menu Bytes",
+          headerRight: () => (
+            <TouchableOpacity
+              style={styles.cartButton}
+              onPress={() => {
+                navigation.navigate("Cart");
+              }}
+            >
+              <Image
+                style={styles.imgCart}
+                source={require("./assets/cart.png")}
+              />
+              {renderCartLen()}
+            </TouchableOpacity>
+          )
+        }}
+      />
+      <Stack.Screen
+        name="Product"
+        component={Product}
+        options={{
+          title: product.name,
+          headerTitleAlign: "center"
+        }}
+      />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={{ title: "Pedido" }}
+      />
+      <Stack.Screen
+        name="Payment"
+        component={payment}
+        options={{ title: "Pagamento" }}
+      />
+      <Stack.Screen
+        name="TrackOrder"
+        component={trackOrder}
+        options={{ title: "Acompanhar pedido" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -71,8 +138,8 @@ function Root() {
         }
       })}
       tabBarOptions={{
-        activeTintColor: "tomato",
-        inactiveTintColor: "gray"
+        activeTintColor: colors.tabSelect,
+        inactiveTintColor: colors.tabItem
       }}
     >
       <Tab.Screen name="Início" component={HomeScreen} />
@@ -96,3 +163,27 @@ export default function Routes() {
     </Stack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  imgCart: {
+    height: 40,
+    width: 40
+  },
+  cartButton: {
+    position: "absolute",
+    right: 20
+  },
+  cartLen: {
+    justifyContent: "center",
+    textAlign: "center",
+    fontWeight: "bold"
+  },
+  cartLenView: {
+    position: "absolute",
+    right: -5,
+    backgroundColor: "red",
+    width: 20,
+    height: 20,
+    borderRadius: 20
+  }
+});

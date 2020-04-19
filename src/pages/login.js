@@ -8,6 +8,10 @@ import {
   Alert,
   TouchableOpacity
 } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 
 import * as actions from "../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
@@ -91,7 +95,7 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
   scrollView: {
-    marginTop: 49,
+    // marginTop: 49,
     flex: 1,
     backgroundColor: "steelblue"
   },
@@ -102,7 +106,7 @@ const styles = StyleSheet.create({
     marginTop: 70
   },
   title: {
-    fontSize: 50,
+    fontSize: hp("10%"),
     fontFamily: "Roboto",
     marginVertical: 100,
     textAlign: "center",

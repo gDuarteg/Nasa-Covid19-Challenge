@@ -10,6 +10,8 @@ import {
   ScrollView
 } from "react-native";
 
+import { colors } from "../styles";
+
 // import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -38,10 +40,6 @@ export default function Payment({ navigation }) {
 
   return (
     <View style={styles.page}>
-      <View style={styles.titleBar}>
-        <Text style={styles.title}>Pagamento</Text>
-      </View>
-
       <ScrollView style={styles.body} showsVerticalScrollIndicator={false}>
         <View style={styles.itemView}>
           <Text style={styles.rowItem}>Tempo de preparo 5 min</Text>
@@ -72,7 +70,7 @@ export default function Payment({ navigation }) {
       <View style={styles.endBar}>
         <Text style={styles.price}>{`Total: R$ ${cart.price}`}</Text>
         <TouchableOpacity
-          style={styles.payBox}
+          style={styles.confirmBox}
           onPress={() => {
             // postCart();
             Alert.alert("Compra realizada com sucesso !!!");
@@ -80,7 +78,7 @@ export default function Payment({ navigation }) {
             navigation.navigate("TrackOrder");
           }}
         >
-          <Text style={styles.pay}>Confirmar</Text>
+          <Text style={styles.confirm}>Confirmar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -89,41 +87,32 @@ export default function Payment({ navigation }) {
 
 const styles = StyleSheet.create({
   page: {
-    marginTop: 49,
     flex: 1,
-    backgroundColor: "silver"
-  },
-  titleBar: {
-    height: 60,
-    backgroundColor: "steelblue",
-    justifyContent: "center"
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 30,
-    textAlign: "center"
+    backgroundColor: colors.page
   },
   body: {
     margin: 15
   },
   rowItem: {
+    color: colors.text,
     fontSize: 18,
     fontWeight: "bold",
     marginLeft: 15
   },
   rowSubItem: {
+    color: colors.textLight,
     fontSize: 16,
     marginLeft: 35
   },
   itemView: {
-    backgroundColor: "lightgray",
+    backgroundColor: colors.itemBackground,
     marginVertical: 10,
     height: 80,
     borderWidth: 0.7,
     borderRadius: 8
   },
   itemViewSumary: {
-    backgroundColor: "lightgray",
+    backgroundColor: colors.itemBackground,
     marginVertical: 10,
     height: 100,
     borderWidth: 0.7,
@@ -135,25 +124,27 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     height: 60,
-    backgroundColor: "gray",
+    backgroundColor: colors.endBarBackground,
     justifyContent: "center"
   },
   price: {
+    color: colors.text,
     position: "absolute",
     fontSize: 30,
     textAlign: "left",
     marginLeft: 20,
     fontWeight: "bold"
   },
-  pay: {
+  confirm: {
+    color: colors.text,
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "right",
     margin: 5
   },
-  payBox: {
+  confirmBox: {
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: colors.border,
     borderRadius: 8,
     alignSelf: "flex-end",
     right: 10

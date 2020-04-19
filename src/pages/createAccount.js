@@ -87,7 +87,6 @@ export default function CreateAccount({ navigation }) {
 
 const styles = StyleSheet.create({
   scrollView: {
-    marginTop: 49,
     flex: 1,
     backgroundColor: "steelblue"
   },
