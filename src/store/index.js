@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from "redux";
 
-import cart from "./reducers/cart";
+import order from "./reducers/order";
 import user from "./reducers/user";
 import menu from "./reducers/menu";
 import product from "./reducers/product";
@@ -24,10 +24,11 @@ initialState = {
   },
   menu: [],
   product: {},
-  cart: {
+  order: {
     cart: [],
     price: 0,
-    len: 0
+    len: 0,
+    machineId: ""
   }
 };
 
@@ -36,7 +37,7 @@ const rootReducer = combineReducers({
   user,
   menu,
   product,
-  cart
+  order
 });
 
 let store = createStore(rootReducer, initialState);

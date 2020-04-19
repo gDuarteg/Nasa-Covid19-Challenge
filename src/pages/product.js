@@ -17,8 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Product({ navigation }) {
   console.log("****************** RODEI PAGINA PRODUCT ******************");
-  const user = useSelector(state => state.user);
-  const cart = useSelector(state => state.cart);
+  const order = useSelector(state => state.order);
   const product = useSelector(state => state.product);
 
   const dispatch = useDispatch();
@@ -86,7 +85,7 @@ export default function Product({ navigation }) {
         <TouchableOpacity
           style={styles.addBox}
           onPress={() => {
-            if (cart.len <= 0) {
+            if (order.len <= 0) {
               dispatch({ type: "ADD_INIT_CART", payload: product });
               navigation.navigate("Menu");
             } else {
@@ -157,6 +156,8 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     backgroundColor: colors.endBarBackground,
+    borderTopColor: colors.endBarBorder,
+    borderTopWidth: 1,
     height: 60,
     justifyContent: "center"
   },
@@ -168,17 +169,21 @@ const styles = StyleSheet.create({
     left: 20
   },
   add: {
-    color: colors.text,
-    fontSize: 25,
+    color: colors.buttonText,
+    fontSize: 20,
     fontWeight: "bold",
-    textAlign: "right",
+    textAlign: "center",
     margin: 5
   },
   addBox: {
-    borderWidth: 3,
-    borderColor: colors.border,
+    borderWidth: 1,
+    backgroundColor: colors.buttonBackgrond,
+    borderColor: colors.buttonBorderColor,
     borderRadius: 8,
+    height: 45,
+    width: 120,
     alignSelf: "flex-end",
-    right: 10
+    right: 10,
+    justifyContent: "center"
   }
 });

@@ -1,24 +1,27 @@
 const colors = {
-  loginBackground: "steelblue",
+  loginBackground: "#da552f",
 
-  headerBackground: "steelblue",
+  headerBackground: "#da552f",
   headerText: "black",
 
   tabNavigatorBackground: "white",
   tabItem: "gray",
   tabSelect: "tomato",
 
-  page: "silver",
-  itemBackground: "lightgray",
-  endBarBackground: "gray",
+  page: "#fafafa",
+  itemBackground: "#fff",
+
+  endBarBackground: "#fafafa",
+  endBarBorder: "#ddd",
 
   title: "black",
   text: "black",
-  textLight: "gray",
-  border: "black",
+  textLight: "#999",
+  border: "#ddd",
 
-  buttonBackgrond: "black",
-  buttonText: "white"
+  buttonBackgrond: "#fff",
+  buttonText: "#da552f",
+  buttonBorderColor: "#da552f"
 };
 
 export default colors;

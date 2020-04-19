@@ -29,9 +29,6 @@ export default function Home({ navigation }) {
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.body}>
-        {/* <View>
-          <Text style={styles.title}>Bytes</Text>
-        </View> */}
         <View>
           <TouchableOpacity
             style={styles.viewButtonMenu}
@@ -49,6 +46,7 @@ export default function Home({ navigation }) {
             onPress={() => {
               Alert.alert("Comunidade");
               // navigation.navigate("Comunidade");
+              navigation.navigate("QRScanner");
             }}
           >
             <Text style={styles.buttonCommunity}>Comunidade</Text>
@@ -78,6 +76,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.buttonBackgrond,
     width: 300,
     height: 130,
+    borderColor: colors.buttonBorderColor,
+    borderWidth: 1,
     borderRadius: 8,
     alignSelf: "center",
     justifyContent: "center",
@@ -85,14 +85,16 @@ const styles = StyleSheet.create({
     marginBottom: 50
   },
   buttonCommunity: {
-    color: "white",
+    color: colors.buttonText,
     textAlign: "center",
     justifyContent: "center",
     fontWeight: "bold",
     fontSize: 30
   },
   viewButtonCommunity: {
-    backgroundColor: "black",
+    backgroundColor: colors.buttonBackgrond,
+    borderColor: colors.buttonBorderColor,
+    borderWidth: 1,
     width: 300,
     height: 130,
     borderRadius: 8,

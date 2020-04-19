@@ -18,15 +18,12 @@ import menuu from "./mokado/menu";
 
 export default function Menu({ navigation }) {
   console.log("****************** RODEI PAGINA MENU ******************");
-
-  const user = useSelector(state => state.user);
   const menu = useSelector(state => state.menu);
-  const cart = useSelector(state => state.cart);
+  const order = useSelector(state => state.order);
   const dispatch = useDispatch();
 
-  console.log("------------ CART ------------");
-  console.log(cart);
-  // console.log(cart.length);
+  console.log("------------ ORDER ------------");
+  console.log(order);
 
   const [category, setCategory] = useState([
     "novidades",

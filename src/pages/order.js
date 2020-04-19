@@ -13,29 +13,15 @@ import { colors } from "../styles";
 
 // import api from "../services/api";
 import { useSelector, useDispatch } from "react-redux";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
-export default function Cart({ navigation }) {
-  // const [total, setTotal] = useState(0);
-  const cart = useSelector(state => state.cart);
+export default function Order({ navigation }) {
+  const order = useSelector(state => state.order);
 
   const dispatch = useDispatch();
-  console.log("****************** RODEI PAGINA CART ******************");
-  console.log("------------ CART ------------");
-  console.log(cart);
-  // console.log(cart.cart[0].price);
+  console.log("****************** RODEI PAGINA ORDER ******************");
+  console.log("------------ ORDER ------------");
+  console.log(order);
 
-  // useEffect(() => {
-  //   sumPrice();
-  // }, [cart]);
-
-  // function sumPrice() {
-  //   var respose = 0;
-  //   for (var i in cart.cart) {
-  //     respose += cart.cart[i].price;
-  //   }
-  //   setTotal(respose);
-  // }
   function renderCart(item) {
     return (
       <View style={styles.cartLine}>
@@ -60,7 +46,7 @@ export default function Cart({ navigation }) {
     <View style={styles.page}>
       <View>
         <FlatList
-          data={cart.cart}
+          data={order.cart}
           renderItem={({ item: rowData, index }) => {
             return <View>{renderCart(rowData)}</View>;
           }}
@@ -69,15 +55,14 @@ export default function Cart({ navigation }) {
       </View>
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Total: R$ ${cart.price}`}</Text>
+        <Text style={styles.price}>{`Total: R$ ${order.price}`}</Text>
         <TouchableOpacity
-          style={styles.payBox}
+          style={styles.buttonViewNext}
           onPress={() => {
-            // Alert.alert("Compra realizada com sucesso !!!");
-            navigation.navigate("Payment");
+            navigation.navigate("QRScanner");
           }}
         >
-          <Text style={styles.pay}>Continuar</Text>
+          <Text style={styles.buttonTextNext}>Continuar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -123,6 +108,8 @@ const styles = StyleSheet.create({
     left: 0,
     height: 60,
     backgroundColor: colors.endBarBackground,
+    borderTopColor: colors.endBarBorder,
+    borderTopWidth: 1,
     justifyContent: "center"
   },
   price: {
@@ -133,18 +120,22 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontWeight: "bold"
   },
-  pay: {
-    color: colors.text,
-    fontSize: 25,
+  buttonTextNext: {
+    color: colors.buttonText,
+    fontSize: 20,
     fontWeight: "bold",
-    textAlign: "right",
+    textAlign: "center",
     margin: 5
   },
-  payBox: {
-    borderWidth: 3,
-    borderColor: colors.border,
+  buttonViewNext: {
+    borderWidth: 1,
+    borderColor: colors.buttonBorderColor,
+    backgroundColor: colors.buttonBackgrond,
+    height: 45,
+    width: 120,
     borderRadius: 8,
     alignSelf: "flex-end",
-    right: 10
+    right: 10,
+    justifyContent: "center"
   }
 });

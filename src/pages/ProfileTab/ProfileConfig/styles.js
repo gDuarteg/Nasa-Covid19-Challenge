@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
     width: wp("40%"),
     justifyContent: "center",
     alignSelf: "center",
-    borderRadius: 9
+    borderRadius: 9,
+    borderColor: colors.buttonBorderColor,
+    borderWidth: 1
   },
   buttonText: {
     fontSize: 20,

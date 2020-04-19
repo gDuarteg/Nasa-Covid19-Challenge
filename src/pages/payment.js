@@ -17,20 +17,20 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Payment({ navigation }) {
   const user = useSelector(state => state.user);
-  const cart = useSelector(state => state.cart);
+  const order = useSelector(state => state.order);
 
   const dispatch = useDispatch();
 
-  console.log("------------ CART ------------");
-  console.log(cart);
+  console.log("------------ ORDER ------------");
+  console.log(order);
   console.log("------------ USER ------------");
   console.log(user);
 
-  async function postCart() {
+  async function postOrder() {
     console.log("enviando pedido ao beckend");
     const response = await api.post("payment/", {
-      token: user.token,
-      cart: cart
+      user: user.token,
+      order: order
     });
     if (respose === "sucess") {
       Alert.alert("Compra realizada com sucesso !!!");
@@ -51,7 +51,9 @@ export default function Payment({ navigation }) {
           </Text>
         </View>
         <View style={styles.itemView}>
-          <Text style={styles.rowItem}>Quantidade de Produtos: {cart.len}</Text>
+          <Text style={styles.rowItem}>
+            Quantidade de Produtos: {order.len}
+          </Text>
         </View>
         {/* <View style={styles.itemView}>
           <Text style={styles.rowItem}>Dividir Conta</Text>
@@ -61,24 +63,24 @@ export default function Payment({ navigation }) {
         </View> */}
         <View style={styles.itemViewSumary}>
           <Text style={styles.rowItem}> Sumário</Text>
-          <Text style={styles.rowSubItem}>+ Produtos {cart.price}</Text>
+          <Text style={styles.rowSubItem}>+ Produtos {order.price}</Text>
           <Text style={styles.rowSubItem}>+ Imposto {0}</Text>
           <Text style={styles.rowSubItem}>- Desconto {0}</Text>
         </View>
       </ScrollView>
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Total: R$ ${cart.price}`}</Text>
+        <Text style={styles.price}>{`Total: R$ ${order.price}`}</Text>
         <TouchableOpacity
-          style={styles.confirmBox}
+          style={styles.buttonViewConfirm}
           onPress={() => {
-            // postCart();
+            // postOrder();
             Alert.alert("Compra realizada com sucesso !!!");
             dispatch({ type: "CLEAN_CART" });
             navigation.navigate("TrackOrder");
           }}
         >
-          <Text style={styles.confirm}>Confirmar</Text>
+          <Text style={styles.buttonTextConfirm}>Confirmar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -108,14 +110,16 @@ const styles = StyleSheet.create({
     backgroundColor: colors.itemBackground,
     marginVertical: 10,
     height: 80,
-    borderWidth: 0.7,
+    borderColor: colors.border,
+    borderBottomWidth: 1,
     borderRadius: 8
   },
   itemViewSumary: {
     backgroundColor: colors.itemBackground,
     marginVertical: 10,
     height: 100,
-    borderWidth: 0.7,
+    borderColor: colors.border,
+    borderBottomWidth: 1,
     borderRadius: 8
   },
   endBar: {
@@ -125,6 +129,8 @@ const styles = StyleSheet.create({
     left: 0,
     height: 60,
     backgroundColor: colors.endBarBackground,
+    borderTopColor: colors.endBarBorder,
+    borderTopWidth: 1,
     justifyContent: "center"
   },
   price: {
@@ -135,18 +141,22 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontWeight: "bold"
   },
-  confirm: {
-    color: colors.text,
-    fontSize: 25,
+  buttonTextConfirm: {
+    color: colors.buttonText,
+    fontSize: 20,
     fontWeight: "bold",
-    textAlign: "right",
+    textAlign: "center",
     margin: 5
   },
-  confirmBox: {
-    borderWidth: 3,
-    borderColor: colors.border,
+  buttonViewConfirm: {
+    borderWidth: 1,
+    borderColor: colors.buttonBorderColor,
+    backgroundColor: colors.buttonBackgrond,
+    height: 45,
+    width: 120,
     borderRadius: 8,
     alignSelf: "flex-end",
-    right: 10
+    right: 10,
+    justifyContent: "center"
   }
 });

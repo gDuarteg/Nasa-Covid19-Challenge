@@ -8,6 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 //COMPONENTS
+import QRScanner from "./components/QRscanner";
 
 // AUTH PAGES
 import Login from "./pages/login";
@@ -18,7 +19,7 @@ import forgotPassword from "./pages/forgotPassword";
 import Home from "./pages/home";
 import Menu from "./pages/menu";
 import Product from "./pages/product";
-import Cart from "./pages/cart";
+import Order from "./pages/order";
 import Payment from "./pages/payment";
 import trackOrder from "./pages/trackOrder";
 
@@ -30,20 +31,19 @@ import Notification from "./pages/ProfileTab/Notification";
 import PaymentConfig from "./pages/ProfileTab/PaymentConfig";
 import ProfileConfig from "./pages/ProfileTab/ProfileConfig";
 import Wallet from "./pages/ProfileTab/Wallet";
-import { red } from "color-name";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeScreen({ navigation }) {
   const product = useSelector(state => state.product);
-  const cart = useSelector(state => state.cart);
+  const order = useSelector(state => state.order);
 
   function renderCartLen() {
-    if (cart.len > 0) {
+    if (order.len > 0) {
       return (
         <View style={styles.cartLenView}>
-          <Text style={styles.cartLen}>{cart.len}</Text>
+          <Text style={styles.cartLen}>{order.len}</Text>
         </View>
       );
     }
@@ -78,7 +78,7 @@ function HomeScreen({ navigation }) {
             <TouchableOpacity
               style={styles.cartButton}
               onPress={() => {
-                navigation.navigate("Cart");
+                navigation.navigate("Order");
               }}
             >
               <Image
@@ -99,14 +99,19 @@ function HomeScreen({ navigation }) {
         }}
       />
       <Stack.Screen
-        name="Cart"
-        component={Cart}
+        name="Order"
+        component={Order}
         options={{ title: "Pedido" }}
       />
       <Stack.Screen
         name="Payment"
         component={Payment}
         options={{ title: "Pagamento" }}
+      />
+      <Stack.Screen
+        name="QRScanner"
+        component={QRScanner}
+        options={{ title: "Escanei o código QR" }}
       />
       <Stack.Screen
         name="TrackOrder"

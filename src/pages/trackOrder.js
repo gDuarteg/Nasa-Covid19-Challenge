@@ -16,12 +16,12 @@ import { colors } from "../styles";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function trackOrder({ navigation }) {
-  const cart = useSelector(state => state.cart);
+  const order = useSelector(state => state.order);
 
   // const dispatch = useDispatch();
 
-  console.log("------------ CART ------------");
-  console.log(cart);
+  console.log("------------ ORDER ------------");
+  console.log(order);
 
   return (
     <View style={styles.page}>
@@ -54,12 +54,12 @@ export default function trackOrder({ navigation }) {
 
       <View style={styles.endBar}>
         <TouchableOpacity
-          style={styles.confirmButtonView}
+          style={styles.buttonViewConfirm}
           onPress={() => {
             navigation.navigate("Home");
           }}
         >
-          <Text style={styles.confirmButton}>Recebi</Text>
+          <Text style={styles.buttonTextConfirm}>Recebi</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
   },
   statusView: {
     justifyContent: "center",
-    // backgroundColor: "white",
     margin: 7
   },
   statusText: {
@@ -120,17 +119,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.endBarBackground,
     justifyContent: "center"
   },
-  confirmButton: {
-    color: colors.text,
-    fontSize: 25,
+  buttonTextConfirm: {
+    color: colors.buttonText,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
     margin: 5,
     marginHorizontal: 60
   },
-  confirmButtonView: {
-    borderWidth: 3,
-    borderColor: colors.border,
+  buttonViewConfirm: {
+    borderWidth: 1,
+    borderColor: colors.buttonBorderColor,
     borderRadius: 8,
     alignSelf: "center",
     right: 10

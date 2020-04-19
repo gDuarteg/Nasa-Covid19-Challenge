@@ -1,4 +1,4 @@
-function cart(state = initialState.cart, action) {
+function order(state = initialState.order, action) {
   switch (action.type) {
     case "ADD_CART":
       return {
@@ -22,9 +22,14 @@ function cart(state = initialState.cart, action) {
         price: state.price - action.payload.price
       };
     case "CLEAN_CART":
-      return { ...state, cart: [], len: 0, price: 0 };
+      return { ...state, cart: [], len: 0, price: 0, machineId: "" };
+    case "SAVE_MACHINE_ID":
+      return {
+        ...state,
+        machineId: action.payload
+      };
     default:
       return state;
   }
 }
-export default cart;
+export default order;
