@@ -10,9 +10,9 @@ import {
   ScrollView
 } from "react-native";
 
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
-// import api from "../services/api";
+// import api from "../../../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Payment({ navigation }) {

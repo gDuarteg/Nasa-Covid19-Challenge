@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -8,93 +8,98 @@ import {
   Alert,
   TouchableOpacity
 } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp
-} from "react-native-responsive-screen";
 
-import * as actions from "../store/actions/user";
-import { useSelector, useDispatch } from "react-redux";
+// import * as actions from "../../../store/actions/user";
+import { colors } from "../../../styles";
 
-import { colors } from "../styles";
+import api from "../../../services/api";
 
-import api from "../services/api";
-
-export default function Login({ navigation }) {
+export default function CreateAccount({ navigation }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [wrong, setWrong] = useState(false);
 
-  const user = useSelector(state => state.user);
-  const dispatch = useDispatch();
-
-  async function logUser() {
+  async function registerUser() {
     try {
-      const response = await api.auth.post("/login", {
+      const response = await api.auth.post("/register", {
+        username: name,
         email: email,
         password: password
       });
       if (response.data.status === "success") {
-        dispatch({ type: actions.SAVE_EMAIL, payload: email });
-        dispatch({ type: actions.SAVE_PASSWORD, payload: password });
-        dispatch({
-          type: actions.ACTIVE_TOKEN,
-          payload: response.data.data.token_id
-        });
-        navigation.navigate("Root");
+        Alert.alert("Cadastro realizado com sucesso !!!");
       } else {
-        dispatch({ type: actions.INVALID_TOKEN });
-        Alert.alert("Usuario ou senha incorretos !!!");
+        Alert.alert("Não foi possivel fazer seu cadastro !!!");
       }
     } catch (error) {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    checkPassword();
+  }, [password2]);
+
+  function checkPassword() {
+    if (password != password2) {
+      setWrong(true);
+    } else {
+      setWrong(false);
+    }
+  }
   return (
     <ScrollView style={styles.scrollView}>
       <View>
-        <Text style={styles.title}>Bytes</Text>
+        <Text style={styles.title}>Criar Conta</Text>
       </View>
       <View style={styles.body}>
         <View>
           <TextInput
             style={styles.TextInput}
+            placeholder="Nome"
+            onChangeText={text => setName(text)}
+          />
+          <TextInput
+            style={styles.TextInput}
             placeholder="Email"
             onChangeText={text => setEmail(text)}
           />
+          {/* <TextInput
+            style={styles.TextInput}
+            placeholder="Celular"
+            secureTextEntry={true}
+            onChangeText={text => setPassword(text)}
+          /> */}
           <TextInput
             style={styles.TextInput}
             placeholder="Senha"
             secureTextEntry={true}
             onChangeText={text => setPassword(text)}
           />
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Confirmar Senha"
+            secureTextEntry={true}
+            onChangeText={text => setPassword2(text)}
+          />
         </View>
+        {wrong ? (
+          <Text style={styles.checkPasswordText}> Senhas diferentes !!!</Text>
+        ) : (
+          console.log("Senhas diferentes")
+        )}
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
-            navigation.navigate("Root"); // REMOVE
-            logUser();
+            if (wrong === false) {
+              registerUser();
+            }
           }}
         >
-          <Text style={styles.button}>Entrar</Text>
+          <Text style={styles.button}>Enviar</Text>
         </TouchableOpacity>
-        <View>
-          <Text
-            style={styles.loginOptionsText}
-            onPress={() => {
-              navigation.navigate("CreateAccount");
-            }}
-          >
-            Criar Conta
-          </Text>
-          <Text
-            style={styles.loginOptionsText}
-            onPress={() => {
-              navigation.navigate("ForgotPassword");
-            }}
-          >
-            Esqueci Minha Senha
-          </Text>
-        </View>
       </View>
     </ScrollView>
   );
@@ -113,7 +118,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.title,
-    fontSize: hp("10%"),
+    fontSize: 50,
     fontFamily: "Roboto",
     marginVertical: 100,
     textAlign: "center",
@@ -123,6 +128,10 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.border,
     borderBottomWidth: 1,
     marginTop: 10
+  },
+  checkPasswordText: {
+    color: "black",
+    textAlign: "center"
   },
   button: {
     fontSize: 20,
@@ -137,10 +146,5 @@ const styles = StyleSheet.create({
     width: 200,
     height: 50,
     marginTop: 10
-  },
-  loginOptionsText: {
-    color: colors.text,
-    textAlign: "center",
-    marginTop: 5
   }
 });

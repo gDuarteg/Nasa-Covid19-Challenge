@@ -9,9 +9,9 @@ import {
   Alert
 } from "react-native";
 
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
-// import api from "../services/api";
+// import api from "../../../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Order({ navigation }) {
@@ -31,12 +31,11 @@ export default function Order({ navigation }) {
           style={styles.itemTrash}
           onPress={() => {
             dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item });
-            // sumPrice();
           }}
         >
           <Image
             style={styles.imgTrash}
-            source={require("../assets/trash.png")}
+            source={require("../../../assets/trash.png")}
           />
         </TouchableOpacity>
       </View>

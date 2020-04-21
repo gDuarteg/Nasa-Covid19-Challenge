@@ -7,11 +7,11 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import api from "../services/api";
+import api from "../../../services/api";
 
 export default function Menu({ navigation }) {
   console.log("****************** RODEI PAGINA MENU ******************");

@@ -1,22 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image
+  TouchableHighlight,
+  Image,
+  Modal,
+  Alert
 } from "react-native";
 
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
-import api from "../services/api";
+import api from "../../../services/api";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Product({ navigation }) {
   console.log("****************** RODEI PAGINA PRODUCT ******************");
   const order = useSelector(state => state.order);
   const product = useSelector(state => state.product);
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   const dispatch = useDispatch();
   console.log("---------------- PRODUCT --------------");
@@ -43,7 +48,7 @@ export default function Product({ navigation }) {
         >
           <Image
             style={styles.imgMinus}
-            source={require("../assets/minus.png")}
+            source={require("../../../assets/minus.png")}
           />
         </TouchableOpacity>
         <Text style={styles.itemQnt}>{item.weight}</Text>
@@ -55,7 +60,7 @@ export default function Product({ navigation }) {
         >
           <Image
             style={styles.imgPlus}
-            source={require("../assets/plus.png")}
+            source={require("../../../assets/plus.png")}
           />
         </TouchableOpacity>
       </View>
@@ -83,15 +88,55 @@ export default function Product({ navigation }) {
           onPress={() => {
             if (order.len <= 0) {
               dispatch({ type: "ADD_INIT_ORDER", payload: product });
-              navigation.navigate("Menu");
+              setModalVisible(true);
+              // navigation.navigate("Menu");
             } else {
               dispatch({ type: "ADD_ORDER", payload: product });
-              navigation.navigate("Menu");
+              setModalVisible(true);
+              // navigation.navigate("Menu");
             }
           }}
         >
           <Text style={styles.add}>Adicionar</Text>
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>
+                Prato Adicionado ao pedido !!!
+              </Text>
+
+              <TouchableOpacity
+                style={styles.openButton}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  navigation.navigate("Order");
+                }}
+              >
+                <Text style={styles.textStyle}>Finalizar Pedido</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.openButton}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  navigation.navigate("Menu");
+                }}
+              >
+                <Text style={styles.textStyle}>Continuar Comprando</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
     </View>
   );
@@ -181,5 +226,47 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     right: 10,
     justifyContent: "center"
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "white", //colors.buttonBackgrond,
+    borderColor: colors.buttonBorderColor,
+    borderWidth: 1,
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    width: 220,
+    margin: 15
+  },
+  textStyle: {
+    color: colors.buttonText,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 15,
+    textAlign: "center"
   }
 });

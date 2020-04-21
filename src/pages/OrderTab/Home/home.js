@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
 import { useSelector } from "react-redux";
 
@@ -44,11 +44,10 @@ export default function Home({ navigation }) {
           <TouchableOpacity
             style={styles.viewButtonCommunity}
             onPress={() => {
-              Alert.alert("Comunidade");
-              // navigation.navigate("Comunidade");
+              Alert.alert("Localizar Restaurante");
             }}
           >
-            <Text style={styles.buttonCommunity}>Comunidade</Text>
+            <Text style={styles.buttonCommunity}>Localizar BytesMachine</Text>
           </TouchableOpacity>
         </View>
       </View>

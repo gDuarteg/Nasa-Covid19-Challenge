@@ -9,17 +9,17 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import * as actions from "../store/actions/user";
+// import * as actions from "../../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
-import { colors } from "../styles";
+import { colors } from "../../../styles";
 
-//import auth from "../services/api";
+//import api from "../../../services/api";
 
 export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
 
   async function sendEmail() {
-    // const response = await auth.post("/forgotPassword", {
+    // const response = await api.auth.post("/forgotPassword", {
     //   email: email,
     // });
     const response = {
