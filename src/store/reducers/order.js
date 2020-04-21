@@ -1,18 +1,18 @@
 function order(state = initialState.order, action) {
   switch (action.type) {
-    case "ADD_CART":
+    case "ADD_ORDER":
       return {
         ...state,
         cart: [...state.cart, action.payload],
         len: state.len + 1,
-        price: state.price + action.payload.price
+        price: state.price + parseInt(action.payload.price)
       };
-    case "ADD_INIT_CART":
+    case "ADD_INIT_ORDER":
       return {
         ...state,
         cart: [action.payload],
         len: 1,
-        price: action.payload.price
+        price: parseInt(action.payload.price)
       };
     case "REMOVE_ITEM_FROM_CART":
       return {

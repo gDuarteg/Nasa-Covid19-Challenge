@@ -12,7 +12,7 @@ import {
 import * as actions from "../store/actions/user";
 import { colors } from "../styles";
 
-//import api from "../services/api";
+import api from "../services/api";
 
 export default function CreateAccount({ navigation }) {
   const [name, setName] = useState("");
@@ -22,18 +22,19 @@ export default function CreateAccount({ navigation }) {
   const [wrong, setWrong] = useState(false);
 
   async function registerUser() {
-    // const response = await api.post("/register", {
-    //   username: name
-    //   email: email,
-    //   password: password
-    // });
-    const response = {
-      status: "fail"
-    };
-    if (response.status === "success") {
-      Alert.alert("Cadastro realizado com sucesso !!!");
-    } else {
-      Alert.alert("Não foi possivel fazer seu cadastro !!!");
+    try {
+      const response = await api.auth.post("/register", {
+        username: name,
+        email: email,
+        password: password
+      });
+      if (response.data.status === "success") {
+        Alert.alert("Cadastro realizado com sucesso !!!");
+      } else {
+        Alert.alert("Não foi possivel fazer seu cadastro !!!");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 

@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { colors } from "../styles";
 
-//import auth from "../services/api";
+import api from "../services/api";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -28,23 +28,25 @@ export default function Login({ navigation }) {
   const dispatch = useDispatch();
 
   async function logUser() {
-    // const response = await auth.post("/login", {
-    //   email: email,
-    //   password: password
-    // });
-    const response = {
-      status: "success",
-      token: "0000"
-    };
-
-    if (response.status === "success") {
-      dispatch({ type: actions.SAVE_EMAIL, payload: email });
-      dispatch({ type: actions.SAVE_PASSWORD, payload: password });
-      dispatch({ type: actions.ACTIVE_TOKEN, payload: response.token });
-      navigation.navigate("Root");
-    } else {
-      dispatch({ type: actions.INVALID_TOKEN });
-      Alert.alert("Usuario ou senha incorretos !!!");
+    try {
+      const response = await api.auth.post("/login", {
+        email: email,
+        password: password
+      });
+      if (response.data.status === "success") {
+        dispatch({ type: actions.SAVE_EMAIL, payload: email });
+        dispatch({ type: actions.SAVE_PASSWORD, payload: password });
+        dispatch({
+          type: actions.ACTIVE_TOKEN,
+          payload: response.data.data.token_id
+        });
+        navigation.navigate("Root");
+      } else {
+        dispatch({ type: actions.INVALID_TOKEN });
+        Alert.alert("Usuario ou senha incorretos !!!");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
   return (
@@ -69,6 +71,7 @@ export default function Login({ navigation }) {
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
+            navigation.navigate("Root"); // REMOVE
             logUser();
           }}
         >

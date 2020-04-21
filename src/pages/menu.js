@@ -4,9 +4,7 @@ import {
   View,
   StyleSheet,
   FlatList,
-  Alert,
-  TouchableOpacity,
-  Image
+  TouchableOpacity
 } from "react-native";
 
 import { colors } from "../styles";
@@ -14,7 +12,6 @@ import { colors } from "../styles";
 import { useSelector, useDispatch } from "react-redux";
 
 import api from "../services/api";
-import menuu from "./mokado/menu";
 
 export default function Menu({ navigation }) {
   console.log("****************** RODEI PAGINA MENU ******************");
@@ -33,7 +30,7 @@ export default function Menu({ navigation }) {
   ]);
 
   const [select, setSelect] = useState(category[0]);
-  const [menuCat, setMenuCat] = useState([]);
+  const [menuCategory, setMenuCategory] = useState([]);
 
   //Executa quando a página é criada
   useEffect(() => {
@@ -45,17 +42,15 @@ export default function Menu({ navigation }) {
     if (menu.length <= 0) {
       console.log("Building Menu Page");
     } else {
-      console.log("Setting Menu");
-      setMenuCat(menu.menu.menuu.filter(p => p.cat === select));
+      console.log("Setting Category Menu");
+      setMenuCategory(menu.filter(p => p.category === select));
     }
   }, [menu, select]);
 
   async function getMenu() {
     try {
-      // const response = await api.get("recipes/");
-      // dispatch({ type: "ADD_MENU", payload: response.data.data });
-
-      dispatch({ type: "ADD_MENU", payload: menuu });
+      const response = await api.global.get("recipes/");
+      dispatch({ type: "ADD_MENU", payload: response.data.data });
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +67,7 @@ export default function Menu({ navigation }) {
       >
         <Text style={styles.menuProductName}>{item.name}</Text>
         <Text style={styles.menuProductPrice}>{`R$ ${item.price}`}</Text>
-        <Text style={styles.menuProductDescrib}>{item.desc}</Text>
+        <Text style={styles.menuProductDescrib}>{item.description}</Text>
       </TouchableOpacity>
     );
   }
@@ -94,7 +89,7 @@ export default function Menu({ navigation }) {
       <View style={styles.menu}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={menuCat}
+          data={menuCategory}
           renderItem={({ item: rowData, index }) => {
             return <View>{menuItem(rowData)}</View>;
           }}

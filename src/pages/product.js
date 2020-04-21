@@ -1,13 +1,11 @@
-/* eslint-disable no-trailing-spaces */
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Text,
   View,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
-  Alert
+  Image
 } from "react-native";
 
 import { colors } from "../styles";
@@ -22,17 +20,15 @@ export default function Product({ navigation }) {
 
   const dispatch = useDispatch();
   console.log("---------------- PRODUCT --------------");
-  console.log(product);
-  // useEffect(() => {
-  //   getProductInfo();
-  // }, []);
+  useEffect(() => {
+    getProductInfo();
+  }, []);
 
-  // GET COM INFORMAÇÕES MAIS PROFUNDAS SOBRE O PRATO
-  // const getProductInfo = async () => {
-  //   const respose = await api.get(`recipes/${product.name}`);
-  //   dispatch({ type: "ADD_PRODUCT", payload: respose.data.data });
-  //   console.log(respose.data.data);
-  // };
+  // GET MORE INFO ABOUT THE PRODUCT
+  async function getProductInfo() {
+    const respose = await api.global.get(`recipes/${product.name}`);
+    dispatch({ type: "ADD_PRODUCT", payload: respose.data.data });
+  }
 
   // Configuração de cada ingrediente do prato selecionado
   function configItem(item) {
@@ -50,7 +46,7 @@ export default function Product({ navigation }) {
             source={require("../assets/minus.png")}
           />
         </TouchableOpacity>
-        <Text style={styles.itemQnt}>{item.qnt}</Text>
+        <Text style={styles.itemQnt}>{item.weight}</Text>
         <TouchableOpacity
           style={styles.itemPlus}
           onPress={() => {
@@ -69,7 +65,7 @@ export default function Product({ navigation }) {
   return (
     <View style={styles.page}>
       <View style={styles.describeView}>
-        <Text style={styles.describe}>{product.desc}</Text>
+        <Text style={styles.describe}>{product.description}</Text>
       </View>
 
       <FlatList
@@ -81,15 +77,15 @@ export default function Product({ navigation }) {
       />
 
       <View style={styles.endBar}>
-        <Text style={styles.price}>{`Valor: R$ ${product.price}`}</Text>
+        <Text style={styles.price}>{`R$ ${product.price}`}</Text>
         <TouchableOpacity
           style={styles.addBox}
           onPress={() => {
             if (order.len <= 0) {
-              dispatch({ type: "ADD_INIT_CART", payload: product });
+              dispatch({ type: "ADD_INIT_ORDER", payload: product });
               navigation.navigate("Menu");
             } else {
-              dispatch({ type: "ADD_CART", payload: product });
+              dispatch({ type: "ADD_ORDER", payload: product });
               navigation.navigate("Menu");
             }
           }}
