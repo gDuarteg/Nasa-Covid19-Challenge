@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { colors } from "../styles";
 
-//import api from "../services/api";
+//import auth from "../services/api";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -27,22 +27,24 @@ export default function Login({ navigation }) {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  async function postUser() {
-    // const response = await api.post("/auth/login", {
+  async function logUser() {
+    // const response = await auth.post("/login", {
     //   email: email,
     //   password: password
     // });
-    const response = "Approved Token";
+    const response = {
+      status: "success",
+      token: "0000"
+    };
 
-    if (email === "admin" && password === "admin") {
+    if (response.status === "success") {
       dispatch({ type: actions.SAVE_EMAIL, payload: email });
       dispatch({ type: actions.SAVE_PASSWORD, payload: password });
-      dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
+      dispatch({ type: actions.ACTIVE_TOKEN, payload: response.token });
       navigation.navigate("Root");
     } else {
       dispatch({ type: actions.INVALID_TOKEN });
-      navigation.navigate("Root");
-      // Alert.alert("Senha Incorreta");
+      Alert.alert("Usuario ou senha incorretos !!!");
     }
   }
   return (
@@ -67,7 +69,7 @@ export default function Login({ navigation }) {
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
-            postUser();
+            logUser();
           }}
         >
           <Text style={styles.button}>Entrar</Text>

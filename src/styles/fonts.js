@@ -1,3 +1,8 @@
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
+
 const fonts = {
   input: 16,
   regular: 14,

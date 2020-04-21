@@ -46,7 +46,6 @@ export default function Home({ navigation }) {
             onPress={() => {
               Alert.alert("Comunidade");
               // navigation.navigate("Comunidade");
-              navigation.navigate("QRScanner");
             }}
           >
             <Text style={styles.buttonCommunity}>Comunidade</Text>

@@ -13,28 +13,22 @@ import * as actions from "../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
 import { colors } from "../styles";
 
-//import api from "../services/api";
+//import auth from "../services/api";
 
 export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
 
-  const user = useSelector(state => state.user);
-  const dispatch = useDispatch();
-
-  function postUser() {
-    // const response = await api.post("/auth/forgotPassword", {
+  async function sendEmail() {
+    // const response = await auth.post("/forgotPassword", {
     //   email: email,
-    //   password: password
     // });
-    // const response = "Approved Token";
-
-    if (email === "admin") {
-      dispatch({ type: actions.SAVE_EMAIL, payload: email });
-      dispatch({ type: actions.SAVE_PASSWORD, payload: password });
-      dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
-      navigation.navigate("Home");
+    const response = {
+      status: "success"
+    };
+    if (response.status === "success") {
+      Alert.alert("Enviamos a senha para o seu email !!!");
     } else {
-      dispatch({ type: actions.INVALID_TOKEN });
+      Alert.alert("Email não encontrado !!!");
     }
   }
   return (
@@ -53,7 +47,7 @@ export default function ForgotPassword({ navigation }) {
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
-            postUser();
+            sendEmail();
           }}
         >
           <Text style={styles.button}>Enviar</Text>

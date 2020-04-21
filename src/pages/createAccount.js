@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -10,31 +10,42 @@ import {
 } from "react-native";
 
 import * as actions from "../store/actions/user";
-import { useSelector, useDispatch } from "react-redux";
 import { colors } from "../styles";
 
 //import api from "../services/api";
 
 export default function CreateAccount({ navigation }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [wrong, setWrong] = useState(false);
 
-  const user = useSelector(state => state.user);
-  const dispatch = useDispatch();
-
-  function postUser() {
-    // const response = await api.post("/auth/forgotPassword", {
+  async function registerUser() {
+    // const response = await api.post("/register", {
+    //   username: name
     //   email: email,
     //   password: password
     // });
-    // const response = "Approved Token";
-
-    if (email === "admin") {
-      dispatch({ type: actions.SAVE_EMAIL, payload: email });
-      dispatch({ type: actions.SAVE_PASSWORD, payload: password });
-      dispatch({ type: actions.ACTIVE_TOKEN, payload: response });
-      navigation.navigate("Home");
+    const response = {
+      status: "fail"
+    };
+    if (response.status === "success") {
+      Alert.alert("Cadastro realizado com sucesso !!!");
     } else {
-      dispatch({ type: actions.INVALID_TOKEN });
+      Alert.alert("Não foi possivel fazer seu cadastro !!!");
+    }
+  }
+
+  useEffect(() => {
+    checkPassword();
+  }, [password2]);
+
+  function checkPassword() {
+    if (password != password2) {
+      setWrong(true);
+    } else {
+      setWrong(false);
     }
   }
   return (
@@ -47,19 +58,19 @@ export default function CreateAccount({ navigation }) {
           <TextInput
             style={styles.TextInput}
             placeholder="Nome"
-            onChangeText={text => setEmail(text)}
+            onChangeText={text => setName(text)}
           />
           <TextInput
             style={styles.TextInput}
             placeholder="Email"
             onChangeText={text => setEmail(text)}
           />
-          <TextInput
+          {/* <TextInput
             style={styles.TextInput}
             placeholder="Celular"
             secureTextEntry={true}
             onChangeText={text => setPassword(text)}
-          />
+          /> */}
           <TextInput
             style={styles.TextInput}
             placeholder="Senha"
@@ -70,13 +81,20 @@ export default function CreateAccount({ navigation }) {
             style={styles.TextInput}
             placeholder="Confirmar Senha"
             secureTextEntry={true}
-            onChangeText={text => setPassword(text)}
+            onChangeText={text => setPassword2(text)}
           />
         </View>
+        {wrong ? (
+          <Text style={styles.checkPasswordText}> Senhas diferentes !!!</Text>
+        ) : (
+          console.log("Senhas diferentes")
+        )}
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
-            postUser();
+            if (wrong === false) {
+              registerUser();
+            }
           }}
         >
           <Text style={styles.button}>Enviar</Text>
@@ -109,6 +127,10 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.border,
     borderBottomWidth: 1,
     marginTop: 10
+  },
+  checkPasswordText: {
+    color: "black",
+    textAlign: "center"
   },
   button: {
     fontSize: 20,
