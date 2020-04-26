@@ -1,4 +1,4 @@
-import { colors } from "../../../styles/index";
+import { colors, fonts, general, metrics } from "../../../styles/index";
 import { StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -11,28 +11,22 @@ const styles = StyleSheet.create({
     backgroundColor: colors.page
   },
   body: {
-    margin: 20,
-    marginBottom: 50
+    marginTop: hp('2'),
+    alignItems: 'center'
   },
   input: {
     fontSize: 18,
     borderBottomWidth: 1,
-    height: 50
+    borderBottomColor: colors.border,
+    height: hp('6'),
+    width: wp('95')
   },
   buttonView: {
-    backgroundColor: colors.buttonBackgrond,
-    height: hp("10%"),
-    width: wp("40%"),
-    justifyContent: "center",
-    alignSelf: "center",
-    borderRadius: 9,
-    borderColor: colors.buttonBorderColor,
-    borderWidth: 1
+    ...general.buttonView,
+    marginTop: hp('7')
   },
   buttonText: {
-    fontSize: 20,
-    color: colors.buttonText,
-    textAlign: "center"
+    ...general.buttonText
   }
 });
 

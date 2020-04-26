@@ -19,7 +19,7 @@ const colors = {
   textLight: "#999",
   border: "#ddd",
 
-  buttonBackgrond: "#fff",
+  buttonBackground: "#fff",
   buttonText: "#da552f",
   buttonBorderColor: "#da552f"
 };

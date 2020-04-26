@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
-  StyleSheet,
   ScrollView,
   TextInput,
   Alert,
   TouchableOpacity
 } from "react-native";
 
-// import * as actions from "../../../store/actions/user";
-import { colors } from "../../../styles";
-
+import styles from './styles';
 import api from "../../../services/api";
 
 export default function CreateAccount({ navigation }) {
@@ -50,7 +47,7 @@ export default function CreateAccount({ navigation }) {
     }
   }
   return (
-    <ScrollView style={styles.scrollView}>
+    <View style={styles.scrollView}>
       <View>
         <Text style={styles.title}>Criar Conta</Text>
       </View>
@@ -88,8 +85,8 @@ export default function CreateAccount({ navigation }) {
         {wrong ? (
           <Text style={styles.checkPasswordText}> Senhas diferentes !!!</Text>
         ) : (
-          console.log("Senhas diferentes")
-        )}
+            console.log("Senhas diferentes")
+          )}
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
@@ -101,50 +98,7 @@ export default function CreateAccount({ navigation }) {
           <Text style={styles.button}>Enviar</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: colors.loginBackground
-  },
-  body: {
-    justifyContent: "center",
-    alignSelf: "center",
-    maxWidth: 200,
-    marginTop: 70
-  },
-  title: {
-    color: colors.title,
-    fontSize: 50,
-    fontFamily: "Roboto",
-    marginVertical: 100,
-    textAlign: "center",
-    fontWeight: "bold"
-  },
-  TextInput: {
-    borderBottomColor: colors.border,
-    borderBottomWidth: 1,
-    marginTop: 10
-  },
-  checkPasswordText: {
-    color: "black",
-    textAlign: "center"
-  },
-  button: {
-    fontSize: 20,
-    textAlign: "center",
-    color: colors.buttonText,
-    fontWeight: "bold"
-  },
-  viewButton: {
-    justifyContent: "center",
-    backgroundColor: colors.buttonBackgrond,
-    borderRadius: 8,
-    width: 200,
-    height: 50,
-    marginTop: 10
-  }
-});

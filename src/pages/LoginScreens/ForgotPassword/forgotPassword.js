@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import {
   Text,
   View,
-  StyleSheet,
   ScrollView,
   TextInput,
   Alert,
   TouchableOpacity
 } from "react-native";
 
-// import * as actions from "../../store/actions/user";
-import { useSelector, useDispatch } from "react-redux";
-import { colors } from "../../../styles";
-
+import styles from "./styles";
 //import api from "../../../services/api";
 
 export default function ForgotPassword({ navigation }) {
@@ -32,7 +28,7 @@ export default function ForgotPassword({ navigation }) {
     }
   }
   return (
-    <ScrollView style={styles.scrollView}>
+    <View style={styles.page}>
       <View>
         <Text style={styles.title}>Esqueceu sua senha?</Text>
       </View>
@@ -53,46 +49,6 @@ export default function ForgotPassword({ navigation }) {
           <Text style={styles.button}>Enviar</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: colors.loginBackground
-  },
-  body: {
-    justifyContent: "center",
-    alignSelf: "center",
-    maxWidth: 200,
-    marginTop: 70
-  },
-  title: {
-    color: colors.title,
-    fontSize: 50,
-    fontFamily: "Roboto",
-    marginVertical: 100,
-    textAlign: "center",
-    fontWeight: "bold"
-  },
-  TextInput: {
-    borderBottomColor: colors.border,
-    borderBottomWidth: 1,
-    marginTop: 10
-  },
-  button: {
-    fontSize: 20,
-    textAlign: "center",
-    color: colors.buttonText,
-    fontWeight: "bold"
-  },
-  viewButton: {
-    justifyContent: "center",
-    backgroundColor: colors.buttonBackgrond,
-    borderRadius: 8,
-    width: 200,
-    height: 50,
-    marginTop: 10
-  }
-});
