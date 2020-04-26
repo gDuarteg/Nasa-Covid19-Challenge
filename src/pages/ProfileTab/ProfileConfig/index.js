@@ -54,15 +54,15 @@ export default function ProfileConfig({ navigation }) {
           onChangeText={text => onChangeEmail(text)}
           value={emailChanged}
         />
+        <TouchableOpacity
+          style={styles.buttonView}
+          onPress={() => {
+            saveUpdate();
+          }}
+        >
+          <Text style={styles.buttonText}>Save</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.buttonView}
-        onPress={() => {
-          saveUpdate();
-        }}
-      >
-        <Text style={styles.buttonText}>Save</Text>
-      </TouchableOpacity>
     </View>
   );
 }

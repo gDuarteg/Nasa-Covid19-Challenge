@@ -2,32 +2,19 @@ import React from "react";
 import {
   Text,
   View,
-  StyleSheet,
-  ScrollView,
-  Image,
   Alert,
   TouchableOpacity
 } from "react-native";
 
-import { colors } from "../../../styles";
-
+import styles from "./styles";
 import { useSelector } from "react-redux";
 
 export default function Home({ navigation }) {
   console.log("****************** RODEI PAGINA HOME ******************");
-  const user = useSelector(state => state.user);
-
-  // function isSingedIn() {
-  //   // const response = await api.post("/auth/login", {
-  //     //   email: email,
-  //     //   password: password
-  //     // });
-  //   const response = "ok";
-  //   if () {}
-  // }
+  // const user = useSelector(state => state.user);
 
   return (
-    <ScrollView style={styles.scrollView}>
+    <View style={styles.page}>
       <View style={styles.body}>
         <View>
           <TouchableOpacity
@@ -42,61 +29,15 @@ export default function Home({ navigation }) {
 
         <View>
           <TouchableOpacity
-            style={styles.viewButtonCommunity}
+            style={styles.viewButtonMenu}
             onPress={() => {
               Alert.alert("Localizar Restaurante");
             }}
           >
-            <Text style={styles.buttonCommunity}>Localizar BytesMachine</Text>
+            <Text style={styles.buttonMenu}>Localizar BytesMachine</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: colors.page
-  },
-  body: {
-    flex: 1
-  },
-  buttonMenu: {
-    color: colors.buttonText,
-    textAlign: "center",
-    justifyContent: "center",
-    fontWeight: "bold",
-    fontSize: 30
-  },
-  viewButtonMenu: {
-    backgroundColor: colors.buttonBackgrond,
-    width: 300,
-    height: 130,
-    borderColor: colors.buttonBorderColor,
-    borderWidth: 1,
-    borderRadius: 8,
-    alignSelf: "center",
-    justifyContent: "center",
-    marginTop: 300,
-    marginBottom: 50
-  },
-  buttonCommunity: {
-    color: colors.buttonText,
-    textAlign: "center",
-    justifyContent: "center",
-    fontWeight: "bold",
-    fontSize: 30
-  },
-  viewButtonCommunity: {
-    backgroundColor: colors.buttonBackgrond,
-    borderColor: colors.buttonBorderColor,
-    borderWidth: 1,
-    width: 300,
-    height: 130,
-    borderRadius: 8,
-    alignSelf: "center",
-    justifyContent: "center"
-  }
-});

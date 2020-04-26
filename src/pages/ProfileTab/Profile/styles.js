@@ -1,4 +1,4 @@
-import { colors } from "../../../styles/index";
+import { colors, metrics } from "../../../styles/index";
 import { StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -16,12 +16,10 @@ const styles = StyleSheet.create({
   },
   profileButton: {
     backgroundColor: colors.itemBackground,
-    borderColor: colors.border,
-    borderBottomWidth: 0.5,
     height: hp("10%"),
-    borderRadius: 8,
     marginBottom: hp("1%"),
-    justifyContent: "center"
+    justifyContent: "center",
+    elevation: 2
   },
   profileText: {
     color: colors.text,
@@ -30,16 +28,14 @@ const styles = StyleSheet.create({
   },
   profileIcon: {
     position: "absolute",
-    marginLeft: wp("5%"),
-    height: 50,
-    width: 50
+    marginLeft: wp("3%"),
+    height: metrics.bigIcon,
+    width: metrics.bigIcon
   },
   itemButton: {
     backgroundColor: colors.itemBackground,
-    borderColor: colors.border,
-    borderBottomWidth: 0.5,
+    elevation: 2,
     height: hp("7.5%"),
-    borderRadius: 8,
     marginBottom: hp("0.7%"),
     justifyContent: "center"
   },
@@ -51,8 +47,8 @@ const styles = StyleSheet.create({
   icon: {
     position: "absolute",
     marginLeft: wp("5%"),
-    height: 25,
-    width: 25
+    height: metrics.mediumIcon,
+    width: metrics.mediumIcon
   }
 });
 

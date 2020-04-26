@@ -2,23 +2,15 @@ import React, { useState } from "react";
 import {
   Text,
   View,
-  StyleSheet,
-  ScrollView,
   TextInput,
   Alert,
   TouchableOpacity
 } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp
-} from "react-native-responsive-screen";
 
+import styles from "./styles";
+import api from "../../../services/api";
 import * as actions from "../../../store/actions/user";
 import { useSelector, useDispatch } from "react-redux";
-
-import { colors } from "../../../styles";
-
-import api from "../../../services/api";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -49,25 +41,32 @@ export default function Login({ navigation }) {
       console.log(error);
     }
   }
+  // function isSingedIn() {
+  // const response = await api.auth.post("/auth/login", {
+  //   email: email,
+  //   password: password
+  // });
+  //   const response = "ok";
+  //   if () {}
+  // }
+
   return (
-    <ScrollView style={styles.scrollView}>
+    <View style={styles.scrollView}>
       <View>
         <Text style={styles.title}>Bytes</Text>
       </View>
       <View style={styles.body}>
-        <View>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Email"
-            onChangeText={text => setEmail(text)}
-          />
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Senha"
-            secureTextEntry={true}
-            onChangeText={text => setPassword(text)}
-          />
-        </View>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Email"
+          onChangeText={text => setEmail(text)}
+        />
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Senha"
+          secureTextEntry={true}
+          onChangeText={text => setPassword(text)}
+        />
         <TouchableOpacity
           style={styles.viewButton}
           onPress={() => {
@@ -96,51 +95,6 @@ export default function Login({ navigation }) {
           </Text>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: colors.loginBackground
-  },
-  body: {
-    justifyContent: "center",
-    alignSelf: "center",
-    maxWidth: 200,
-    marginTop: 70
-  },
-  title: {
-    color: colors.title,
-    fontSize: hp("10%"),
-    fontFamily: "Roboto",
-    marginVertical: 100,
-    textAlign: "center",
-    fontWeight: "bold"
-  },
-  TextInput: {
-    borderBottomColor: colors.border,
-    borderBottomWidth: 1,
-    marginTop: 10
-  },
-  button: {
-    fontSize: 20,
-    textAlign: "center",
-    color: colors.buttonText,
-    fontWeight: "bold"
-  },
-  viewButton: {
-    justifyContent: "center",
-    backgroundColor: colors.buttonBackgrond,
-    borderRadius: 8,
-    width: 200,
-    height: 50,
-    marginTop: 10
-  },
-  loginOptionsText: {
-    color: colors.text,
-    textAlign: "center",
-    marginTop: 5
-  }
-});
