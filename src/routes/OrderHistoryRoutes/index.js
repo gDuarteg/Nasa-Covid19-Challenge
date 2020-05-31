@@ -22,13 +22,13 @@ export default function OrderHistoryRoutes() {
       }}
     >
       <Stack.Screen
-        name="Finalized"
-        component={pages.CommunityTab.Feed}
+        name="Pedidos"
+        component={pages.OrderHistoryTab.Finalized}
         options={{ title: "Finalizados" }}
       />
       <Stack.Screen
-        name="InProgress"
-        component={pages.CommunityTab.ChefProfile}
+        name="Produto"
+        component={pages.OrderHistoryTab.InProgress}
         options={{ title: "Em Andamento" }}
       />
     </Stack.Navigator>

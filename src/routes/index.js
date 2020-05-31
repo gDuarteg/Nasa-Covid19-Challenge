@@ -6,9 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import OrderRoutes from "./OrderRoutes";
-import LoginRoutes from "./LoginRoutes";
 import ProfileRoutes from "./ProfileRoutes";
-import CommunityRoutes from "./CommunityRoutes";
 import OrderHistoryRoutes from "./OrderHistoryRoutes";
 
 const Stack = createStackNavigator();
@@ -23,8 +21,6 @@ function Root() {
 
           if (route.name === "Início") {
             iconName = focused ? "ios-home" : "ios-home";
-          } else if (route.name === "Comunidade") {
-            iconName = focused ? "ios-people" : "ios-people";
           } else if (route.name === "Pedidos") {
             iconName = focused ? "ios-reorder" : "ios-reorder";
           } else if (route.name === "Perfil") {
@@ -38,9 +34,8 @@ function Root() {
         inactiveTintColor: colors.tabItem
       }}
     >
-      <Tab.Screen name="Início" component={OrderRoutes} />
-      <Tab.Screen name="Comunidade" component={CommunityRoutes} />
       <Tab.Screen name="Pedidos" component={OrderHistoryRoutes} />
+      <Tab.Screen name="Início" component={OrderRoutes} />
       <Tab.Screen name="Perfil" component={ProfileRoutes} />
     </Tab.Navigator>
   );
@@ -49,12 +44,11 @@ function Root() {
 function Routes() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      // initialRouteName=""
       screenOptions={{
         headerShown: false
       }}
     >
-      <Stack.Screen name="Login" component={LoginRoutes} />
       <Stack.Screen name="Root" component={Root} />
     </Stack.Navigator>
   );

@@ -17,25 +17,15 @@ export default function Home({ navigation }) {
     <View style={styles.page}>
       <View style={styles.body}>
         <View>
-          <TouchableOpacity
+          <Text>Fazer lista de produtos </Text>
+          {/* <TouchableOpacity
             style={styles.viewButtonMenu}
             onPress={() => {
               navigation.navigate("Menu");
             }}
           >
             <Text style={styles.buttonMenu}>Pedido Rápido</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View>
-          <TouchableOpacity
-            style={styles.viewButtonMenu}
-            onPress={() => {
-              Alert.alert("Localizar Restaurante");
-            }}
-          >
-            <Text style={styles.buttonMenu}>Localizar BytesMachine</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>
