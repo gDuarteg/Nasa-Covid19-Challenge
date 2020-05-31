@@ -9,11 +9,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.page,
     },
+
     body: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
+
     buttonMenu: {
         color: colors.buttonText,
         fontSize: fonts.bigButtonText,
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         margin: 5
     },
+
     viewButtonMenu: {
         height: metrics.bigButtonHeight,
         width: metrics.bigButtonWidth,
@@ -39,7 +42,26 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         marginBottom: hp("4%"),
+    },
+
+    productText: {
+        textAlign: "center",
+        fontSize: 30,
+        paddingTop: 10,
+        paddingBottom: 10
+
+    },
+
+    productView: {
+        backgroundColor:"white"
+    },
+
+    productInsideView:{
+        backgroundColor:"white",
+        padding: 100
     }
+
+
 });
 
 export default styles;

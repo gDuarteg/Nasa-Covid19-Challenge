@@ -2,10 +2,13 @@ import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useSelector } from "react-redux";
 import { colors } from "../../styles";
+import Product from "../../pages/ProductDetailTab/Product/product";
+import Success from "../../pages/SuccessTab/Success/success";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
 import pages from "../../pages/index";
+//import Success from "../../pages/SuccessTab/Success/success";
 // import QRScanner from "../../components/QRscanner";
 
 const Stack = createStackNavigator();
@@ -41,6 +44,22 @@ export default function OrderRoutes({ navigation }) {
         component={pages.OrderTab.Home}
         options={{
           title: "Cibus",
+          headerTitleAlign: "center"
+        }}
+      />
+      <Stack.Screen
+        name="Product"
+        component={Product}
+        options={{
+          title: "Products",
+          headerTitleAlign: "center"
+        }}
+      />
+      <Stack.Screen
+        name="Success"
+        component={Success}
+        options={{
+          title: "Success",
           headerTitleAlign: "center"
         }}
       />
