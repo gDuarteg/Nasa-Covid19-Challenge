@@ -9,11 +9,17 @@ The challenge consists in mitigating the impact of covid 19 in our complex food 
 
 ## Technologies
 Blockchain technology
+
 FastApi used in backend
+
 Oracle
+
 React Native used in frontend
+
 Lambda structured functions
+
 Firebase 
+
 Python language
 
 ## Impacts
