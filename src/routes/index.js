@@ -19,11 +19,11 @@ function Root() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Início") {
+          if (route.name === "Market") {
             iconName = focused ? "ios-home" : "ios-home";
-          } else if (route.name === "Pedidos") {
-            iconName = focused ? "ios-reorder" : "ios-reorder";
-          } else if (route.name === "Perfil") {
+          } else if (route.name === "Consulting") {
+            iconName = focused ? "ios-document" : "ios-document";
+          } else if (route.name === "Profile") {
             iconName = focused ? "ios-person" : "ios-person";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -34,9 +34,9 @@ function Root() {
         inactiveTintColor: colors.tabItem
       }}
     >
-      <Tab.Screen name="Pedidos" component={OrderHistoryRoutes} />
-      <Tab.Screen name="Início" component={OrderRoutes} />
-      <Tab.Screen name="Perfil" component={ProfileRoutes} />
+      <Tab.Screen name="Profile" component={ProfileRoutes} />
+      <Tab.Screen name="Market" component={OrderRoutes} />
+      <Tab.Screen name="Consulting" component={OrderHistoryRoutes} />
     </Tab.Navigator>
   );
 }

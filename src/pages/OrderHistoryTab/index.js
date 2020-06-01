@@ -1,7 +1,7 @@
-import Finalized from "./Finalized";
+import Calculator from "./Calculator";
 import InProgress from "./InProgress";
 
 export default {
-    Finalized,
+    Calculator,
     InProgress
 };

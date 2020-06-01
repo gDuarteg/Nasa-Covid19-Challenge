@@ -1,44 +1,55 @@
+import { colors, metrics } from "../../../styles/index";
 import { StyleSheet } from "react-native";
-import { colors, fonts, metrics, general } from "../../../styles";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp
 } from "react-native-responsive-screen";
+
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-        backgroundColor: colors.page,
+        backgroundColor: colors.page
     },
     body: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        // marginTop: 20,
+        // marginHorizontal: 20
     },
-    buttonMenu: {
-        color: colors.buttonText,
-        fontSize: fonts.bigButtonText,
-        fontWeight: "bold",
-        textAlign: "center",
-        margin: 5
-    },
-    viewButtonMenu: {
-        height: metrics.bigButtonHeight,
-        width: metrics.bigButtonWidth,
-        backgroundColor: colors.buttonBackground,
-        borderColor: colors.buttonBorderColor,
+    profileButton: {
+        backgroundColor: colors.itemBackground,
+        height: hp("10%"),
+        marginBottom: hp("1%"),
         justifyContent: "center",
-        borderRadius: 8,
-        borderWidth: 1,
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        marginBottom: hp("4%"),
+        elevation: 2
+    },
+    profileText: {
+        color: colors.text,
+        fontSize: hp("2.5%"),
+        marginLeft: wp("20%")
+    },
+    // profileIcon: {
+    //   position: "absolute",
+    //   marginLeft: wp("3%"),
+    //   height: metrics.bigIcon,
+    //   width: metrics.bigIcon
+    // },
+    itemButton: {
+        backgroundColor: colors.itemBackground,
+        elevation: 2,
+        height: hp("9%"),
+        marginBottom: hp("0.7%"),
+        justifyContent: "center"
+    },
+    itemText: {
+        color: colors.text,
+        fontSize: hp("2%"),
+        marginLeft: wp("4%"),
+        marginTop: hp("1%")
+    },
+    icon: {
+        position: "absolute",
+        marginLeft: wp("5%"),
+        height: metrics.mediumIcon,
+        width: metrics.mediumIcon
     }
 });
 

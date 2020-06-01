@@ -28,35 +28,21 @@ export default function ProfileRoutes() {
           headerTitleAlign: "center"
         }}
       />
+
       <Stack.Screen
-        name="Wallet"
-        component={pages.ProfileTab.Wallet}
-        options={{ title: "Carteira" }}
+        name="mapa"
+        component={pages.ProfileTab.Mapa}
+        options={{ title: "Mapa" }}
       />
       <Stack.Screen
-        name="Collection"
-        component={pages.ProfileTab.Collection}
-        options={{ title: "Coleção" }}
+        name="details"
+        component={pages.ProfileTab.Details}
+        options={{ title: "Details" }}
       />
       <Stack.Screen
-        name="Notification"
-        component={pages.ProfileTab.Notification}
-        options={{ title: "Notificações" }}
-      />
-      <Stack.Screen
-        name="PaymentConfig"
-        component={pages.ProfileTab.PaymentConfig}
-        options={{ title: "Formas de Pagamento" }}
-      />
-      <Stack.Screen
-        name="ProfileConfig"
-        component={pages.ProfileTab.ProfileConfig}
-        options={{ title: "Editar Dados" }}
-      />
-      <Stack.Screen
-        name="Config"
-        component={pages.ProfileTab.Config}
-        options={{ title: "Configurações" }}
+        name="supply"
+        component={pages.ProfileTab.Supply}
+        options={{ title: "Supply" }}
       />
     </Stack.Navigator>
   );

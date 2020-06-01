@@ -44,6 +44,11 @@ export default function OrderRoutes({ navigation }) {
           headerTitleAlign: "center"
         }}
       />
+      <Stack.Screen
+        name="sell"
+        component={pages.OrderTab.Sell}
+        options={{ title: "Sell" }}
+      />
     </Stack.Navigator>
   );
 }
