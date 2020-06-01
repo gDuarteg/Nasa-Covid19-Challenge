@@ -25,6 +25,22 @@ Python language
 ## Impacts
 The big impact of our project focuses at the food chain, where it needs to be restructured due to this situation we are facing. We try to mitigate the waste of food because of low demand and lack of nutrition because of individuals that needed the public government system
 
+## Images
+Here we show you some of our screens.
+
+![](Areas.png)
+
+![](details.png)
+
+![](sell.png)
+
+![](consulting.png)
+
+![](store.jpeg)
+
+![](product.png)
+
+
 ## Keywords
 Supplychain
 
