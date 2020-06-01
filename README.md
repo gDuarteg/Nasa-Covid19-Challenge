@@ -39,7 +39,7 @@ Here we show you some of our screens.
 
 ![](consulting.png)
 
-![](store.jpeg)
+![](store.png)
 
 ![](product.png)
 
