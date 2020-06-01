@@ -27,8 +27,12 @@ The big impact of our project focuses at the food chain, where it needs to be re
 
 ## Keywords
 Supplychain
+
 Food chain
+
 Blockchain
+
 Nutrition
+
 Food
 
