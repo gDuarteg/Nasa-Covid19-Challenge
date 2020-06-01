@@ -4,6 +4,9 @@
 The backend was deployed at Oracle and you can check at:
 https://nasa.brartc.com/docs
 
+### Frontend
+The frontend project pages is subdivided in master branch and Luvi branch to understand the difference between the two existing clients roles
+
 ## The Project
 The challenge consists in mitigating the impact of covid 19 in our complex food supply chain. In our quest to find a solution, we discovered that the beginning of the chain, the small family producer, where suddenly without a market to sell its produce, because street markets and restaurants, the main consumers, where closed. On the other hand, the very tip of the chain, the consumers, where suffering food shortages. So we decided to develop a digital intermediate that would provide a safe logistic train, to connect the two ends of the chain. Providing food security for those who need, and helping the families of the small producers.
 
